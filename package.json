@@ -2,8 +2,9 @@
   "name": "desafio-3",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
+    "build:backend": "tsc --project tsconfig.node.json",
+    "start:backend": "npm run build:backend && node dist/index.js",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
@@ -12,13 +13,17 @@
   "dependencies": {
     "express": "^4.19.2",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
     "@types/express": "^4.17.21",
+    "@types/node": "^22.5.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "@types/sqlite3": "^3.1.11",
     "@vitejs/plugin-react": "^4.3.1",
     "eslint": "^9.9.0",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",

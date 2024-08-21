@@ -1,12 +1,15 @@
 import express from 'express';
+import { initDB } from './database';
 
 const app = express();
 const port = 3000;
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+app.use(express.json());
 
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
+initDB().then(() => {
+    app.listen(port, () => {
+        console.log(`Server is running at http://localhost:${port}`);
+    });
+}).catch((error) => {
+    console.error('Erro ao inicializar o banco de dados:', error);
 });

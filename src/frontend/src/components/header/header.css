@@ -1,0 +1,41 @@
+.header-navbar {
+    padding: 10px 20px;
+}
+  
+.header-navbar .navbar-brand {
+    display: flex;
+    align-items: center;
+}
+  
+.header-navbar .nav-link {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.search-button {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit; 
+}
+  
+.search-button:hover,
+.search-button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.search-button-color {
+    color: black;
+}
+
+.active-link {
+    color: #FD6468;
+    font-weight: bold;
+}
+

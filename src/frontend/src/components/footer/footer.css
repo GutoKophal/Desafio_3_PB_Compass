@@ -2,10 +2,16 @@
     background-color: black;
     color: white;
     border-bottom: solid #FD6468 5px;
+    position: fixed; 
+    bottom: 0; 
+    width: 100%; 
+    z-index: 1000; 
 }
 
 .footer-section {
-    margin-bottom: 20px;
+    margin-bottom: 0px; 
+    display: flex;
+    flex-direction: column;
 }
 
 .footer h5 {
@@ -51,10 +57,38 @@
 .company-icon {
     font-size: 24px;
     margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.ml-2 {
+    margin-left: 8px;
 }
 
 .mt-2 {
-    background-color: #FD6468;
-    border-color: none;
+    background-color: #FD6468 !important; 
+    border-color: #FD6468 !important; 
 }
 
+.mt-2:hover {
+    background-color: #e05558 !important; 
+    border-color: #e05558 !important;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#root {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1;
+}

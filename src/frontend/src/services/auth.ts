@@ -1,4 +1,4 @@
-import { auth } from "./firebase"
+/* import { auth } from "./firebase"
 import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
@@ -30,3 +30,4 @@ export const doSignInWithGoogle = async (): Promise<UserCredential> => {
 export const doSignOut = (): Promise<void> => {
   return auth.signOut();
 }
+ */

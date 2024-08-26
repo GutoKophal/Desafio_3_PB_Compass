@@ -1,0 +1,44 @@
+.background-image {
+  position: relative;
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/trisog-e765d.appspot.com/o/images%2Fnight.jpg?alt=media&token=521f435d-8865-409d-a5fc-6951ee6d3177');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  color: white;
+}
+
+.text-overlay {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 80%;
+}
+
+.text-above {
+  color: #FD6468;
+  font-size: 2em;
+}
+
+.title-search {
+  font-size: 6em;
+}
+
+.text-search {
+  font-size: 1.5em;
+  margin-bottom: 30px;
+}
+
+.search-form-container {
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: black;
+}

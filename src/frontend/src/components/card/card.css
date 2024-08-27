@@ -1,0 +1,38 @@
+.card {
+  border: none;
+  background-color: #F7F8FA;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-title {
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-img-top {
+  height: 180px;
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.text-danger {
+  display: flex;
+  align-items: center;
+}
+
+.text-danger svg {
+  margin-right: 4px;
+}
+
+.text-muted {
+  font-size: 0.875rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}

@@ -1,0 +1,36 @@
+.section-title-container {
+  text-align: center;
+  margin-bottom: 2%;
+  margin-top: 7%;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: #FD5056;
+  font-style: italic;
+  position: relative;
+}
+
+.section-subtitle::before, .section-subtitle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 1px;
+  background-color: #ccc;
+}
+
+.section-subtitle::before {
+  left: -50px;
+}
+
+.section-subtitle::after {
+  right: -50px;
+}
+
+.section-main-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #0C1446;
+  margin-top: 5px;
+}

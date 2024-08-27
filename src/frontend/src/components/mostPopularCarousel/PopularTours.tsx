@@ -1,11 +1,11 @@
 import React from 'react';
 import { Carousel, Container, Row, Col } from 'react-bootstrap';
-import Card from '../card/Card';
+import Card from '../mostPopularCard/Card'
 import './popularTours.css'
 
 const PopularTours: React.FC = () => {
   return (
-    <Container>
+    <Container className='carousel-container'>
       <Carousel indicators={true} interval={null} className="custom-carousel">
         <Carousel.Item>
           <Row>

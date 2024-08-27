@@ -1,25 +1,25 @@
-import React, { useState } from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
-import { FaFacebook, FaTwitter, FaLinkedin, FaPlane } from 'react-icons/fa';
+import React, { useState } from "react";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { FaFacebook, FaTwitter, FaLinkedin, FaPlane } from "react-icons/fa";
 
-import './footer.css';
+import "./footer.css";
 
 const Footer: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [emailError, setEmailError] = useState('');
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
-    setEmailError('');
+    setEmailError("");
   };
 
   const handleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateEmail(email)) {
-      setEmail('');
-      setEmailError('');
+      setEmail("");
+      setEmailError("");
     } else {
-      setEmailError('Please enter a valid email address.');
+      setEmailError("Please enter a valid email address.");
     }
   };
 
@@ -30,21 +30,40 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="footer mt-5 py-4">
-      <Container fluid className='footer-conteiner'>
+      <Container fluid className="footer-conteiner">
         <Row className="d-flex flex-wrap">
-          <Col md={2} className="footer-section" id='first-section'>
+          <Col md={2} className="footer-section" id="first-section">
             <div className="company-info">
               <div className="company-icon d-flex align-items-center">
-                <FaPlane /><p className="ml-2">Trisog</p>
+                <FaPlane />
+                <p className="ml-2">Trisog</p>
               </div>
               <p>Need any help?</p>
               <p>Call Us: (888)11234 5678</p>
               <p>Love Street, Muscat, Oman</p>
               <p>Example@trisog.com</p>
               <div className="social-icons d-flex">
-                <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebook /></a>
-                <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
-                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+                <a
+                  href="https://www.facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaFacebook />
+                </a>
+                <a
+                  href="https://www.twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaTwitter />
+                </a>
+                <a
+                  href="https://www.linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaLinkedin />
+                </a>
               </div>
             </div>
           </Col>
@@ -52,10 +71,18 @@ const Footer: React.FC = () => {
           <Col md={2} className="footer-section">
             <h5>Company</h5>
             <ul className="footer-links">
-              <li><a href="">About Us</a></li>
-              <li><a href="">Services</a></li>
-              <li><a href="">Careers</a></li>
-              <li><a href="">Contact</a></li>
+              <li>
+                <a href="">About Us</a>
+              </li>
+              <li>
+                <a href="">Services</a>
+              </li>
+              <li>
+                <a href="">Careers</a>
+              </li>
+              <li>
+                <a href="">Contact</a>
+              </li>
             </ul>
           </Col>
 
@@ -70,7 +97,7 @@ const Footer: React.FC = () => {
           </Col>
 
           <Col md={2} className="footer-section">
-            <h5>&nbsp;</h5> 
+            <h5>&nbsp;</h5>
             <ul className="footer-links">
               <li>Tokyo</li>
               <li>Sydney</li>
@@ -79,9 +106,15 @@ const Footer: React.FC = () => {
             </ul>
           </Col>
 
-          <Col md={4} className="footer-section d-flex flex-column align-items-center">
+          <Col
+            md={4}
+            className="footer-section d-flex flex-column align-items-center"
+          >
             <h5>Sign up Newsletter</h5>
-            <Form onSubmit={handleEmailSubmit} className="d-flex flex-column align-items-center">
+            <Form
+              onSubmit={handleEmailSubmit}
+              className="d-flex flex-column align-items-center"
+            >
               <Form.Group controlId="formEmail" className="w-100">
                 <Form.Control
                   type="email"
@@ -94,7 +127,9 @@ const Footer: React.FC = () => {
                   {emailError}
                 </Form.Control.Feedback>
               </Form.Group>
-              <Button type="submit" variant="primary" className="mt-2">Submit</Button>
+              <Button type="submit" variant="primary" className="mt-2">
+                Submit
+              </Button>
               <span className="mt-3">© 2023 Trisog All Rights Reserved</span>
             </Form>
           </Col>

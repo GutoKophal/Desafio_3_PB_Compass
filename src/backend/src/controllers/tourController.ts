@@ -6,30 +6,38 @@ export async function getAllTours(db: Database, _req: Request, res: Response) {
         const tours = await db.all('SELECT * FROM tour');
         res.json(tours);
     } catch (error) {
-        res.status(500).json({ error: 'Error searching tour' });
+        res.status(500).json({ error: 'Error retrieving tours' });
     }
 }
 
-export async function getToursByDestinationId(db: Database, req: Request, res: Response) {
+export async function getTourById(db: Database, req: Request, res: Response) {
     try {
-        const { destination_id } = req.params;
-        const tours = await db.all('SELECT * FROM tour WHERE destination_id = ?', [destination_id]);
-        res.json(tours);
+        const { id } = req.params;
+        const tour = await db.get('SELECT * FROM tour WHERE id = ?', [id]);
+
+        if (tour) {
+            res.json(tour);
+        } else {
+            res.status(404).json({ error: 'Tour not found' });
+        }
     } catch (error) {
-        res.status(500).json({ error: 'Error searching tour' });
+        res.status(500).json({ error: 'Error retrieving tour' });
     }
 }
 
 export async function createTour(db: Database, req: Request, res: Response) {
     try {
-        const { destination_id, name, description, price, popularity, image_url } = req.body;
+        const { name, country, city, price, start_date, final_date, averageReview, duration, type_id } = req.body;
+
         const result = await db.run(
-            `INSERT INTO tour (destination_id, name, description, price, popularity, image_url) 
-            VALUES (?, ?, ?, ?, ?, ?)`,
-            [destination_id, name, description, price, popularity, image_url]
+            `INSERT INTO tour (name, country, city, price, start_date, final_date, averageReview, duration, type_id) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            [name, country, city, price, start_date, final_date, averageReview, duration, type_id]
         );
+
         res.status(201).json({ id: result.lastID });
     } catch (error) {
+        console.error('Error creating tour:', error); 
         res.status(500).json({ error: 'Error creating tour' });
     }
 }
@@ -37,12 +45,12 @@ export async function createTour(db: Database, req: Request, res: Response) {
 export async function updateTour(db: Database, req: Request, res: Response) {
     try {
         const { id } = req.params;
-        const { destination_id, name, description, price, popularity, image_url } = req.body;
+        const { name, country, city, price, start_date, final_date, averageReview, duration } = req.body;
 
         const result = await db.run(
-            `UPDATE tour SET destination_id = ?, name = ?, description = ?, price = ?, 
-            popularity = ?, image_url = ? WHERE id = ?`,
-            [destination_id, name, description, price, popularity, image_url, id]
+            `UPDATE tour SET name = ?, country = ?, city = ?, price = ?, start_date = ?, final_date = ?, 
+            averageReview = ?, duration = ? WHERE id = ?`,
+            [name, country, city, price, start_date, final_date, averageReview, duration, id]
         );
 
         if (result.changes === 0) {

@@ -5,10 +5,12 @@
     width: 100%; 
     z-index: 1000; 
     flex-shrink: 0;
+    margin-top: 0; /* Garante que o rodapé não tenha margem superior */
+    padding-top: 0; /* Remove qualquer padding na parte superior */
 }
 
 .footer-section {
-    margin-bottom: 0px; 
+    margin-bottom: 0px;
     display: flex;
     flex-direction: column;
 }

@@ -7,8 +7,12 @@ import PopularTours from '../components/mostPopularCarousel/PopularTours';
 import CarouselTitle from '../components/mostPopularTitle/CarouselTitle';
 import TourTypeCarousel from '../components/tourTypeCarousel/TourTypeCarousel';
 import TourTypeTitle from '../components/tourTypeTitle/TourTypeTitle';
-/* import TopAttractions from '../components/topAttractions/TopAttractions';
-import QualityStandards from '../components/qualityStandarts/QualityStandards'; */
+import TestimonialSection from '../components/testimonial/TestimonialSection';
+import LatestTravelGuide from '../components/latestTravelGuide/LatestTravelGuide';
+import IconSection from '../components/iconSection/IconSection';
+import QualityStandards from '../components/qualityStandarts/QualityStandards';
+
+/* import TopAttractions from '../components/topAttractions/TopAttractions'; */
 
 const Home = () => {
     return (
@@ -19,10 +23,14 @@ const Home = () => {
             <CarouselTitle />
             <PopularTours />
             <NumberInfo />
+            <QualityStandards />
             <TourTypeTitle />
             <TourTypeCarousel />
-            {/* <TopAttractions />
-            <QualityStandards /> */}
+            <TestimonialSection />
+            <LatestTravelGuide />
+            <IconSection />
+
+            {/* <TopAttractions />*/}
 
 
             <Footer />

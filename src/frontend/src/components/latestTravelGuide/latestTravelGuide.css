@@ -1,0 +1,83 @@
+.latest-travel-guide {
+  padding: 50px;
+  background-color: #ffffff; /* Fundo branco para a seção inteira */
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: #FD6468;
+  font-style: italic;
+  position: relative;
+}
+
+.section-subtitle::before, .section-subtitle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 1px;
+  background-color: #ccc;
+}
+
+.section-subtitle::before {
+  left: -50px;
+}
+
+.section-subtitle::after {
+  right: -50px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #0C1446;
+  margin-top: 10px;
+}
+
+.guide-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  background-color: #ffffff; /* Fundo branco para a lista também */
+  margin-left: 10%;
+}
+
+.guide-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color: #ffffff; /* Fundo branco para cada item */
+}
+
+.guide-image {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.guide-info {
+  max-width: 35%; /* Reservando espaço para a imagem */
+}
+
+.guide-date {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.guide-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #0C1446;
+  margin: 0;
+  white-space: normal; /* Permite a quebra de linha normal */
+  word-wrap: break-word; /* Quebra palavras longas se necessário */
+  line-height: 1.4; /* Ajusta o espaçamento entre as linhas para melhor legibilidade */
+}
+

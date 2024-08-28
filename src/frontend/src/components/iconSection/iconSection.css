@@ -1,0 +1,20 @@
+.icon-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 13%;
+  padding: 20px 0;
+  background-color: #f7f8fa; 
+  margin-bottom: 0px;
+  margin-top: 3%;
+}
+
+.icon-image {
+  height: 80px; 
+  opacity: 0.6; 
+  transition: opacity 0.3s ease;
+}
+
+.icon-image:hover {
+  opacity: 1; 
+}

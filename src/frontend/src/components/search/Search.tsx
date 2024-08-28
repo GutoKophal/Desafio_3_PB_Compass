@@ -2,16 +2,29 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./search.css";
 
-const Search: React.FC = () => {
+interface SearchProps {
+  titleAbove?: string;
+  title?: string;
+  description?: string;
+  backgroundImageUrl?: string;
+}
+
+const Search: React.FC<SearchProps> = ({
+  titleAbove = "Save 15% off in World Wide",
+  title = "Travel & Adventures",
+  description = "Find awesome hotel, tour, car and activities in London",
+  backgroundImageUrl = "https://firebasestorage.googleapis.com/v0/b/trisog-e765d.appspot.com/o/images%2Fnight.jpg?alt=media&token=521f435d-8865-409d-a5fc-6951ee6d3177",
+}) => {
   return (
-    <div className="background-image">
+    <div 
+      className="background-image" 
+      style={{ backgroundImage: `url(${backgroundImageUrl})` }}
+    >
       <div className="text-overlay">
         <div className="title-container">
-          <h3 className="text-above">Save 15% off in World Wide</h3>
-          <h1 className="title-search">Travel & Adventures</h1>
-          <p className="text-search">
-            Find awesome hotel, tour, car and activities in London
-          </p>
+          <h3 className="text-above">{titleAbove}</h3>
+          <h1 className="title-search">{title}</h1>
+          <p className="text-search">{description}</p>
         </div>
 
         <div className="search-form-container">

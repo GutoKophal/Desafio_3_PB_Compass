@@ -1,7 +1,7 @@
 .footer {
     background-color: black;
     color: white;
-    border-bottom: solid #FD6468 5px;
+    border-bottom: solid #FD5056 5px;
     width: 100%; 
     z-index: 1000; 
     flex-shrink: 0;
@@ -38,7 +38,7 @@
 }
 
 .footer-links li a:hover {
-    color: #FD6468;
+    color: #FD5056;
 }
 
 .social-icons a {
@@ -47,7 +47,7 @@
 }
 
 .social-icons a:hover {
-    color: #FD6468;
+    color: #FD5056;
 }
 
 .company-info {
@@ -67,8 +67,8 @@
 }
 
 .mt-2 {
-    background-color: #FD6468 !important; 
-    border-color: #FD6468 !important; 
+    background-color: #FD5056 !important; 
+    border-color: #FD5056 !important; 
 }
 
 .mt-2:hover {

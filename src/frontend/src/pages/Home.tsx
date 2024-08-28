@@ -19,7 +19,12 @@ const Home = () => {
         <div>
             <TopBar />
             <Header />
-            <Search />
+            <Search 
+                titleAbove="Save 15% off in World Wide"
+                title="Travel & Adventures"
+                description="Find awesome hotel, tour, car and activities in London"
+                backgroundImageUrl="https://firebasestorage.googleapis.com/v0/b/trisog-e765d.appspot.com/o/images%2Faurora.jpg?alt=media&token=fc7232f8-e743-4279-a2b0-b1a4ca552d03"
+            />
             <CarouselTitle />
             <PopularTours />
             <NumberInfo />

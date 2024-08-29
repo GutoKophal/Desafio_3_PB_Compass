@@ -12,9 +12,13 @@ export async function createTourTable(db: Database) {
             final_date TEXT,
             averageReview REAL,
             duration INTEGER,
+            max_people INTEGER,
+            latitude REAL,
+            longitude REAL,
+            minAge INTEGER,
+            image_url TEXT,
             type_id INTEGER,
             FOREIGN KEY (type_id) REFERENCES type(id)
         );
     `);
 }
-

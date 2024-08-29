@@ -27,12 +27,12 @@ export async function getTourById(db: Database, req: Request, res: Response) {
 
 export async function createTour(db: Database, req: Request, res: Response) {
     try {
-        const { name, country, city, price, start_date, final_date, averageReview, duration, type_id } = req.body;
+        const { name, country, city, price, start_date, final_date, averageReview, duration, max_people, latitude, longitude, minAge, image_url, type_id } = req.body;
 
         const result = await db.run(
-            `INSERT INTO tour (name, country, city, price, start_date, final_date, averageReview, duration, type_id) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-            [name, country, city, price, start_date, final_date, averageReview, duration, type_id]
+            `INSERT INTO tour (name, country, city, price, start_date, final_date, averageReview, duration, max_people, latitude, longitude, minAge, image_url, type_id) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            [name, country, city, price, start_date, final_date, averageReview, duration, max_people, latitude, longitude, minAge, image_url, type_id]
         );
 
         res.status(201).json({ id: result.lastID });
@@ -45,12 +45,12 @@ export async function createTour(db: Database, req: Request, res: Response) {
 export async function updateTour(db: Database, req: Request, res: Response) {
     try {
         const { id } = req.params;
-        const { name, country, city, price, start_date, final_date, averageReview, duration } = req.body;
+        const { name, country, city, price, start_date, final_date, averageReview, duration, max_people, latitude, longitude, minAge, image_url } = req.body;
 
         const result = await db.run(
             `UPDATE tour SET name = ?, country = ?, city = ?, price = ?, start_date = ?, final_date = ?, 
-            averageReview = ?, duration = ? WHERE id = ?`,
-            [name, country, city, price, start_date, final_date, averageReview, duration, id]
+            averageReview = ?, duration = ?, max_people = ?, latitude = ?, longitude = ?, minAge = ?, image_url = ? WHERE id = ?`,
+            [name, country, city, price, start_date, final_date, averageReview, duration, max_people, latitude, longitude, minAge, image_url, id]
         );
 
         if (result.changes === 0) {

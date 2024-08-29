@@ -15,7 +15,6 @@ router.get('/:id', async (req, res) => {
     getTourById(db, req, res);
 });
 
-
 router.post('/', async (req, res) => {
     const db = await dbPromise;
     createTour(db, req, res);
@@ -30,6 +29,5 @@ router.delete('/:id', async (req, res) => {
     const db = await dbPromise;
     deleteTour(db, req, res);
 });
-
 
 export default router;

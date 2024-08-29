@@ -1,0 +1,105 @@
+.booking-card {
+  width: 400px;
+  padding: 20px;
+  background-color: #f7f8fa;
+  margin-left: 20px;
+  flex-shrink: 0;
+  margin-top: 1%;
+  margin-right: 7%;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #0C1446;
+}
+
+.price span {
+  font-weight: normal;
+  font-size: 1rem;
+  color: #888;
+}
+
+.divider {
+  height: 1px;
+  background-color: #ddd;
+  margin: 20px 0;
+}
+
+.booking-section {
+  margin-bottom: 20px;
+}
+
+.booking-section label {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #0C1446;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.booking-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.ticket-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.ticket-controls {
+  display: flex;
+  align-items: center;
+}
+
+.ticket-controls button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: #FD5056;
+  color: white;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.ticket-controls span {
+  margin: 0 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #0C1446;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #0C1446;
+  margin-bottom: 20px;
+}
+
+.total-price {
+  color: #FD5056;
+}
+
+.book-button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #FD5056;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.book-button:hover {
+  background-color: #e05558;
+}

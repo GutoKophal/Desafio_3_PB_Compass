@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import { initDB } from './database';
 import tourRoutes from './routes/tourRoutes';
 import reviewRoutes from './routes/reviewRoutes';
@@ -6,6 +7,10 @@ import typeRoutes from './routes/typeRoutes';
 
 const app = express();
 const port = 3000;
+
+app.use(cors({
+    origin: '*',
+}));
 
 app.use(express.json());
 

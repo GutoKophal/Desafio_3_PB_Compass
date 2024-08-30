@@ -1,57 +1,60 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Carousel, Container, Row, Col } from 'react-bootstrap';
-import TourTypeItem from '../tourTypeItem/TourTypeItem'
+import TourTypeItem from '../tourTypeItem/TourTypeItem';
 import { FaSuitcase } from 'react-icons/fa';
 import './TourTypeCarousel.css';
+import { getTypes } from '../../services/api';
+
+interface Type {
+  id: number;
+  name: string;
+}
+
+const chunkArray = (arr: Type[], size: number) => {
+  const chunkedArr = [];
+  for (let i = 0; i < arr.length; i += size) {
+    chunkedArr.push(arr.slice(i, i + size));
+  }
+  return chunkedArr;
+};
 
 const TourTypeCarousel: React.FC = () => {
+  const [types, setTypes] = useState<Type[]>([]);
+
+  useEffect(() => {
+    const fetchTypes = async () => {
+      try {
+        const data = await getTypes();
+        setTypes(data);
+      } catch (error) {
+        console.error('Failed to fetch types:', error);
+      }
+    };
+
+    fetchTypes();
+  }, []);
+
+  const typeChunks = chunkArray(types, 6);
+
   return (
     <Container>
       <Carousel indicators={true} interval={null} className="tour-type-carousel">
-        <Carousel.Item>
-          <Row>
-            <Col md={2}>
-              <TourTypeItem icon={<FaSuitcase />} title="Beach" toursCount={10} price={250} />
-            </Col>
-            <Col md={2}>
-              <TourTypeItem icon={<FaSuitcase />} title="Beach" toursCount={8} price={300} />
-            </Col>
-            <Col md={2}>
-              <TourTypeItem icon={<FaSuitcase />} title="Beach" toursCount={12} price={150} />
-            </Col>
-            <Col md={2}>
-              <TourTypeItem icon={<FaSuitcase />} title="Beach" toursCount={7} price={400} />
-            </Col>
-            <Col md={2}>
-              <TourTypeItem icon={<FaSuitcase />} title="Beach" toursCount={5} price={600} />
-            </Col>
-            <Col md={2}>
-              <TourTypeItem icon={<FaSuitcase />} title="Beach" toursCount={15} price={200} />
-            </Col>
-          </Row>
-        </Carousel.Item>
-        <Carousel.Item>
-          <Row>
-            <Col md={2}>
-              <TourTypeItem icon={<FaSuitcase />} title="Beach" toursCount={9} price={270} />
-            </Col>
-            <Col md={2}>
-              <TourTypeItem icon={<FaSuitcase />} title="Beach" toursCount={11} price={350} />
-            </Col>
-            <Col md={2}>
-              <TourTypeItem icon={<FaSuitcase />} title="Beach" toursCount={6} price={180} />
-            </Col>
-            <Col md={2}>
-              <TourTypeItem icon={<FaSuitcase />} title="Beach" toursCount={14} price={320} />
-            </Col>
-            <Col md={2}>
-              <TourTypeItem icon={<FaSuitcase />} title="Beach" toursCount={4} price={210} />
-            </Col>
-            <Col md={2}>
-              <TourTypeItem icon={<FaSuitcase />} title="Beach" toursCount={3} price={700} />
-            </Col>
-          </Row>
-        </Carousel.Item>
+        {typeChunks.map((chunk, index) => (
+          <Carousel.Item key={index}>
+            <Row>
+              {chunk.map((type) => (
+                <Col key={type.id} md={2}>
+                  <TourTypeItem 
+                    icon={<FaSuitcase />} 
+                    title={type.name}
+                    toursCount={Math.floor(Math.random() * 15) + 5}
+                    price={Math.floor(Math.random() * 500) + 100}
+                  />
+                </Col>
+              ))}
+            </Row>
+          </Carousel.Item>
+        ))}
       </Carousel>
     </Container>
   );

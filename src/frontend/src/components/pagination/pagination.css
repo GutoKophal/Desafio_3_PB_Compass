@@ -1,0 +1,51 @@
+.pagination {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  padding-left: 0;
+  margin-top: 10%;
+}
+
+.page-item {
+  margin: 0 5px;
+}
+
+.page-link {
+  display: block;
+  padding: 10px 15px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  color: #555;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.page-link:hover {
+  background-color: #f0f0f0;
+}
+
+.page-item.active .page-link {
+  background-color: #ff4c4c;
+  border-color: #ff4c4c;
+  color: #fff;
+}
+
+.page-item.disabled .page-link {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Adicionando estilo específico para as setas de navegação */
+.page-item:first-child .page-link {
+  border-radius: 50%; /* Bordas arredondadas apenas à esquerda */
+}
+
+.page-item:last-child .page-link {
+  border-radius: 50%; /* Bordas arredondadas apenas à direita */
+}
+
+.page-link:focus {
+  outline: none;
+}

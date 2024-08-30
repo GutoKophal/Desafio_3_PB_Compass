@@ -15,13 +15,13 @@ export async function getTourById(db: Database, req: Request, res: Response) {
         const { id } = req.params;
         const tour = await db.get('SELECT * FROM tour WHERE id = ?', [id]);
 
-        if (tour) {
-            res.json(tour);
-        } else {
+        if (!tour) {
             res.status(404).json({ error: 'Tour not found' });
+        } else {
+            res.json(tour);
         }
     } catch (error) {
-        res.status(500).json({ error: 'Error retrieving tour' });
+        res.status(500).json({ error: 'Error retrieving the tour' });
     }
 }
 
@@ -37,7 +37,6 @@ export async function createTour(db: Database, req: Request, res: Response) {
 
         res.status(201).json({ id: result.lastID });
     } catch (error) {
-        console.error('Error creating tour:', error); 
         res.status(500).json({ error: 'Error creating tour' });
     }
 }
@@ -45,12 +44,11 @@ export async function createTour(db: Database, req: Request, res: Response) {
 export async function updateTour(db: Database, req: Request, res: Response) {
     try {
         const { id } = req.params;
-        const { name, country, city, price, start_date, final_date, averageReview, duration, max_people, latitude, longitude, minAge, image_url } = req.body;
+        const { name, country, city, price, start_date, final_date, averageReview, duration, max_people, latitude, longitude, minAge, image_url, type_id } = req.body;
 
         const result = await db.run(
-            `UPDATE tour SET name = ?, country = ?, city = ?, price = ?, start_date = ?, final_date = ?, 
-            averageReview = ?, duration = ?, max_people = ?, latitude = ?, longitude = ?, minAge = ?, image_url = ? WHERE id = ?`,
-            [name, country, city, price, start_date, final_date, averageReview, duration, max_people, latitude, longitude, minAge, image_url, id]
+            `UPDATE tour SET name = ?, country = ?, city = ?, price = ?, start_date = ?, final_date = ?, averageReview = ?, duration = ?, max_people = ?, latitude = ?, longitude = ?, minAge = ?, image_url = ?, type_id = ? WHERE id = ?`,
+            [name, country, city, price, start_date, final_date, averageReview, duration, max_people, latitude, longitude, minAge, image_url, type_id, id]
         );
 
         if (result.changes === 0) {

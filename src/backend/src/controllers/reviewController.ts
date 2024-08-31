@@ -3,12 +3,12 @@ import { Database } from 'sqlite';
 
 export async function createReview(db: Database, req: Request, res: Response) {
     try {
-        const { idTour, user_name, user_email, date, services, locations, amenities, price_review, comfort } = req.body;
+        const { idTour, user_name, user_email, date, services, locations, amenities, price_review, comfort, comment } = req.body;
 
         const result = await db.run(
-            `INSERT INTO review (idTour, user_name, user_email, date, services, locations, amenities, price_review, comfort)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-            [idTour, user_name, user_email, date, services, locations, amenities, price_review, comfort]
+            `INSERT INTO review (idTour, user_name, user_email, date, services, locations, amenities, price_review, comfort, comment)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            [idTour, user_name, user_email, date, services, locations, amenities, price_review, comfort, comment]
         );
 
         res.status(201).json({ id: result.lastID });
@@ -51,12 +51,12 @@ export async function countReviewsByTourId(db: Database, req: Request, res: Resp
 export async function updateReview(db: Database, req: Request, res: Response) {
     try {
         const { id } = req.params;
-        const { idTour, user_name, user_email, date, services, locations, amenities, price_review, comfort } = req.body;
+        const { idTour, user_name, user_email, date, services, locations, amenities, price_review, comfort, comment } = req.body;
 
         const result = await db.run(
             `UPDATE review SET idTour = ?, user_name = ?, user_email = ?, date = ?, services = ?, 
-            locations = ?, amenities = ?, price_review = ?, comfort = ? WHERE id = ?`,
-            [idTour, user_name, user_email, date, services, locations, amenities, price_review, comfort, id]
+            locations = ?, amenities = ?, price_review = ?, comfort = ?, comment = ? WHERE id = ?`,
+            [idTour, user_name, user_email, date, services, locations, amenities, price_review, comfort, comment, id]
         );
 
         if (result.changes === 0) {

@@ -9,6 +9,7 @@ interface Tour {
   averageReview: number;
   duration: number;
   price: number;
+  type_id: number;
 }
 
 const usePagination = (itemsPerPage: number, fetchItems: () => Promise<Tour[]>) => {
@@ -28,14 +29,10 @@ const usePagination = (itemsPerPage: number, fetchItems: () => Promise<Tour[]>) 
     fetchData();
   }, [fetchItems]);
 
-  // Calculate the index of the last item on the current page
   const indexOfLastItem = currentPage * itemsPerPage;
-  // Calculate the index of the first item on the current page
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  // Select only the items for the current page
   const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
 
-  // Handle page change
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   return {

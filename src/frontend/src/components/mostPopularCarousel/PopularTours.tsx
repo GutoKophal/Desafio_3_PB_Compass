@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Carousel, Container, Row, Col } from 'react-bootstrap';
-import Card from '../mostPopularCard/Card'
-import './popularTours.css'
+import Card from '../mostPopularCard/Card';
+import './popularTours.css';
 import { getTours } from '../../services/api';
 
 interface Tour {
@@ -45,6 +45,7 @@ const PopularTours: React.FC = () => {
               {chunk.map((tour) => (
                 <Col key={tour.id} md={3}>
                   <Card 
+                    id={tour.id}
                     image_url={tour.image_url}
                     city={tour.city}
                     country={tour.country}

@@ -1,17 +1,16 @@
 import React from 'react';
-import './pagination.css'
+import './pagination.css';
 
 interface PaginationProps {
-  totalItems: number;
-  itemsPerPage: number;
   currentPage: number;
   paginate: (pageNumber: number) => void;
+  totalPages: number;
 }
 
-const Pagination: React.FC<PaginationProps> = ({ totalItems, itemsPerPage, currentPage, paginate }) => {
+const Pagination: React.FC<PaginationProps> = ({ currentPage, paginate, totalPages }) => {
   const pageNumbers = [];
 
-  for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
+  for (let i = 1; i <= totalPages; i++) {
     pageNumbers.push(i);
   }
 
@@ -30,7 +29,7 @@ const Pagination: React.FC<PaginationProps> = ({ totalItems, itemsPerPage, curre
             </button>
           </li>
         ))}
-        <li className={`page-item ${currentPage === pageNumbers.length ? 'disabled' : ''}`}>
+        <li className={`page-item ${currentPage === totalPages ? 'disabled' : ''}`}>
           <button className="page-link" onClick={() => paginate(currentPage + 1)}>
             &gt;
           </button>

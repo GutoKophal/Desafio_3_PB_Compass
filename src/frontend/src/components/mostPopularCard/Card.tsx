@@ -1,8 +1,10 @@
 import React from 'react';
 import { FaStar, FaClock } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 import './card.css';
 
 interface CardProps {
+  id: number;
   image_url: string;
   city: string;
   country: string;
@@ -12,9 +14,15 @@ interface CardProps {
   price: number;
 }
 
-const Card: React.FC<CardProps> = ({ image_url, city, country, title, averageReview, duration, price }) => {
+const Card: React.FC<CardProps> = ({ id, image_url, city, country, title, averageReview, duration, price }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/tourDetails/${id}`);
+  };
+
   return (
-    <div className="card h-100">
+    <div className="card h-100" onClick={handleClick} style={{ cursor: 'pointer' }}>
       <img 
         src={image_url} 
         className="card-img-top" 

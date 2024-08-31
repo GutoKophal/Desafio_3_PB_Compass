@@ -5,102 +5,98 @@ interface ReviewData {
   services: number;
   locations: number;
   amenities: number;
-  prices: number;
-  food: number;
-  roomComfort: number;
+  price_review: number;
+  comfort: number;
 }
 
-const AverageReviewsComponent: React.FC = () => {
-  const [reviewData, setReviewData] = useState<ReviewData | null>(null);
-  const [averageRating, setAverageRating] = useState<number | null>(null);
+interface AverageReviewsComponentProps {
+  reviews: ReviewData[];
+}
+
+const AverageReviewsComponent: React.FC<AverageReviewsComponentProps> = ({ reviews }) => {
+  const [averageRatings, setAverageRatings] = useState<ReviewData>({
+    services: 0,
+    locations: 0,
+    amenities: 0,
+    price_review: 0,
+    comfort: 0,
+  });
 
   useEffect(() => {
-    const fetchData = async () => {
-      const data = {
-        services: 4,
-        locations: 2,
-        amenities: 3,
-        prices: 4,
-        food: 3,
-        roomComfort: 4,
-      };
-      setReviewData(data);
-      calculateAverage(data);
-    };
+    if (reviews.length === 0) return;
 
-    fetchData();
-  }, []);
+    const totalReviews = reviews.length;
 
-  const calculateAverage = (data: ReviewData) => {
-    const values = Object.values(data);
-    const sum = values.reduce((acc, rating) => acc + rating, 0);
-    const avg = sum / values.length;
-    setAverageRating(avg);
-  };
+    const totals = reviews.reduce(
+      (acc, review) => ({
+        services: acc.services + review.services,
+        locations: acc.locations + review.locations,
+        amenities: acc.amenities + review.amenities,
+        price_review: acc.price_review + review.price_review,
+        comfort: acc.comfort + review.comfort,
+      }),
+      { services: 0, locations: 0, amenities: 0, price_review: 0, comfort: 0 }
+    );
 
-  if (!reviewData || averageRating === null) {
-    return <div>Loading...</div>;
-  }
+    setAverageRatings({
+      services: totals.services / totalReviews,
+      locations: totals.locations / totalReviews,
+      amenities: totals.amenities / totalReviews,
+      price_review: totals.price_review / totalReviews,
+      comfort: totals.comfort / totalReviews,
+    });
+  }, [reviews]);
 
   return (
     <div className="average-reviews">
       <div className="average-box">
-        <span className="average-number">{averageRating.toFixed(1)}</span>
-        <span className="average-text">Excellent</span>
+        <span className="average-number">{(Object.values(averageRatings).reduce((acc, val) => acc + val, 0) / 5).toFixed(1)}</span>
+        <span className="average-text">Overall Rating</span>
       </div>
       <div className="review-bars">
         <div className="review-bar">
           <span className="label">Services</span>
           <div className="bar-container">
             <div className="bar">
-              <div className="fill" style={{ width: `${(reviewData.services / 5) * 100}%` }}></div>
+              <div className="fill" style={{ width: `${(averageRatings.services / 5) * 100}%` }}></div>
             </div>
-            <span className="value">{reviewData.services.toFixed(1)}</span>
+            <span className="value">{averageRatings.services.toFixed(1)}</span>
           </div>
         </div>
         <div className="review-bar">
           <span className="label">Locations</span>
           <div className="bar-container">
             <div className="bar">
-              <div className="fill" style={{ width: `${(reviewData.locations / 5) * 100}%` }}></div>
+              <div className="fill" style={{ width: `${(averageRatings.locations / 5) * 100}%` }}></div>
             </div>
-            <span className="value">{reviewData.locations.toFixed(1)}</span>
+            <span className="value">{averageRatings.locations.toFixed(1)}</span>
           </div>
         </div>
         <div className="review-bar">
           <span className="label">Amenities</span>
           <div className="bar-container">
             <div className="bar">
-              <div className="fill" style={{ width: `${(reviewData.amenities / 5) * 100}%` }}></div>
+              <div className="fill" style={{ width: `${(averageRatings.amenities / 5) * 100}%` }}></div>
             </div>
-            <span className="value">{reviewData.amenities.toFixed(1)}</span>
+            <span className="value">{averageRatings.amenities.toFixed(1)}</span>
           </div>
         </div>
         <div className="review-bar">
           <span className="label">Prices</span>
           <div className="bar-container">
             <div className="bar">
-              <div className="fill" style={{ width: `${(reviewData.prices / 5) * 100}%` }}></div>
+              <div className="fill" style={{ width: `${(averageRatings.price_review / 5) * 100}%` }}></div>
             </div>
-            <span className="value">{reviewData.prices.toFixed(1)}</span>
+            <span className="value">{averageRatings.price_review.toFixed(1)}</span> 
           </div>
         </div>
         <div className="review-bar">
-          <span className="label">Food</span>
+          <span className="label">Comfort</span>
           <div className="bar-container">
             <div className="bar">
-              <div className="fill" style={{ width: `${(reviewData.food / 5) * 100}%` }}></div>
+              <div className="fill" style={{ width: `${(averageRatings.comfort / 5) * 100}%` }}></div>
             </div>
-            <span className="value">{reviewData.food.toFixed(1)}</span>
-          </div>
-        </div>
-        <div className="review-bar">
-          <span className="label">Room comfort and quality</span>
-          <div className="bar-container">
-            <div className="bar">
-              <div className="fill" style={{ width: `${(reviewData.roomComfort / 5) * 100}%` }}></div>
-            </div>
-            <span className="value">{reviewData.roomComfort.toFixed(1)}</span>
+            <span className="value">{averageRatings.comfort.toFixed(1)}</span>
           </div>
         </div>
       </div>

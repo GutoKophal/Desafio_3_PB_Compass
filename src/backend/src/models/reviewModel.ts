@@ -13,6 +13,7 @@ export async function createReviewTable(db: Database) {
         amenities INTEGER CHECK(amenities >= 1 AND amenities <= 5),
         price_review INTEGER CHECK(price_review >= 1 AND price_review <= 5),
         comfort INTEGER CHECK(comfort >= 1 AND comfort <= 5),
+        comment TEXT,
         FOREIGN KEY (idTour) REFERENCES tour(id)
       );
   `);

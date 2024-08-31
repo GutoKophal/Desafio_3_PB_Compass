@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaCheck } from 'react-icons/fa';  // Importando o ícone
+import { FaCheck } from 'react-icons/fa';
 import './qualityStandards.css';
 
 const QualityStandards: React.FC = () => {

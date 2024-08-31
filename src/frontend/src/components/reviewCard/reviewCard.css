@@ -68,7 +68,14 @@
 }
 
 .review-content {
-  font-size: 0.95rem;
+  font-size: 1.3rem;
   color: #555;
   line-height: 1.5;
+}
+
+.rating-count {
+  margin-left: 10px;
+  font-size: 1.1rem;
+  font: bold;
+  color: #555;
 }

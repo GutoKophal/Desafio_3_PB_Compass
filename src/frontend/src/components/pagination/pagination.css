@@ -27,8 +27,8 @@
 }
 
 .page-item.active .page-link {
-  background-color: #ff4c4c;
-  border-color: #ff4c4c;
+  background-color: #FD5056;
+  border-color: #FD5056;
   color: #fff;
 }
 
@@ -37,13 +37,12 @@
   opacity: 0.5;
 }
 
-/* Adicionando estilo específico para as setas de navegação */
 .page-item:first-child .page-link {
-  border-radius: 50%; /* Bordas arredondadas apenas à esquerda */
+  border-radius: 50%;
 }
 
 .page-item:last-child .page-link {
-  border-radius: 50%; /* Bordas arredondadas apenas à direita */
+  border-radius: 50%;
 }
 
 .page-link:focus {

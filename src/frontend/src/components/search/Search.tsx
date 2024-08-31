@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./search.css";
 
 interface SearchProps {
+  onSearch?: (searchParams: { destination: string; type: string; when: string; guests: string }) => void;
   titleAbove?: string;
   title?: string;
   description?: string;
@@ -10,11 +11,24 @@ interface SearchProps {
 }
 
 const Search: React.FC<SearchProps> = ({
+  onSearch,
   titleAbove = "Save 15% off in World Wide",
   title = "Travel & Adventures",
   description = "Find awesome hotel, tour, car and activities in London",
   backgroundImageUrl = "https://firebasestorage.googleapis.com/v0/b/trisog-e765d.appspot.com/o/images%2Fnight.jpg?alt=media&token=521f435d-8865-409d-a5fc-6951ee6d3177",
 }) => {
+  const [destination, setDestination] = useState("");
+  const [type, setType] = useState("");
+  const [when, setWhen] = useState("");
+  const [guests, setGuests] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (onSearch) {
+      onSearch({ destination, type, when, guests });
+    }
+  };
+
   return (
     <div 
       className="background-image" 
@@ -28,7 +42,7 @@ const Search: React.FC<SearchProps> = ({
         </div>
 
         <div className="search-form-container">
-          <form className="d-flex align-items-center justify-content-between">
+          <form className="d-flex align-items-center justify-content-between" onSubmit={handleSubmit}>
             <div className="form-group me-3">
               <label htmlFor="destination" className="form-label">
                 Destination
@@ -38,6 +52,8 @@ const Search: React.FC<SearchProps> = ({
                 className="form-control"
                 id="destination"
                 placeholder="Where to go?"
+                value={destination}
+                onChange={(e) => setDestination(e.target.value)}
               />
             </div>
             <div className="form-group me-3">
@@ -49,6 +65,8 @@ const Search: React.FC<SearchProps> = ({
                 className="form-control"
                 id="type"
                 placeholder="Activity"
+                value={type}
+                onChange={(e) => setType(e.target.value)}
               />
             </div>
             <div className="form-group me-3">
@@ -56,10 +74,11 @@ const Search: React.FC<SearchProps> = ({
                 When
               </label>
               <input
-                type="text"
+                type="date"
                 className="form-control"
                 id="when"
-                placeholder="Date"
+                value={when}
+                onChange={(e) => setWhen(e.target.value)}
               />
             </div>
             <div className="form-group me-3">
@@ -71,6 +90,8 @@ const Search: React.FC<SearchProps> = ({
                 className="form-control"
                 id="guests"
                 placeholder="0"
+                value={guests}
+                onChange={(e) => setGuests(e.target.value)}
               />
             </div>
             <button type="submit" className="btn btn-danger">

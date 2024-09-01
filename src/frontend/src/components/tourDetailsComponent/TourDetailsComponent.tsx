@@ -12,8 +12,8 @@ interface TourDetailsProps {
   maxPeople: number;
   minAge: string;
   tourType: string;
-  reviews: string;
-  rating: number;
+  overallRating: number | null;
+  reviewCount: number;
   overview: string;
 }
 
@@ -28,8 +28,8 @@ const TourDetailsComponent: React.FC<TourDetailsProps> = ({
   maxPeople,
   minAge,
   tourType,
-  reviews,
-  rating,
+  overallRating,
+  reviewCount,
   overview,
 }) => {
   const googleMapsSrc = `https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d10000!2d${longitude}!3d${latitude}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1724953603912!5m2!1spt-BR!2sbr`;
@@ -67,10 +67,13 @@ const TourDetailsComponent: React.FC<TourDetailsProps> = ({
           </div>
           <div className="detail-item">
             <span className="label">Reviews</span>
-            <span className="value rating">{rating} <span className="reviews">({reviews})</span></span>
+            <span className="value rating">
+              {overallRating !== null ? overallRating.toFixed(1) : 'No reviews yet'} 
+              <span className="reviews">{reviewCount} {reviewCount === 1 ? 'review' : 'reviews'}</span>
+            </span>
           </div>
         </div>
-
+        
         <h3>Overview</h3>
         <p>{overview}</p>
 
@@ -86,6 +89,7 @@ const TourDetailsComponent: React.FC<TourDetailsProps> = ({
             loading="lazy"
           />
         </div>
+        <h3>Avarege Reviews</h3>
       </div>
     </div>
   );

@@ -27,9 +27,6 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ tourId, onReviewSubmitted }) =>
 
   const toggleAnonymous = () => {
     setIsAnonymous(!isAnonymous);
-    if (!isAnonymous) {
-      setName('');
-    }
   };
 
   const handleSubmit = async () => {
@@ -146,7 +143,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ tourId, onReviewSubmitted }) =>
           type="text" 
           placeholder="Your name" 
           className="input-field" 
-          value={name} 
+          value={isAnonymous ? 'Anonymous' : name} 
           onChange={(e) => setName(e.target.value)} 
           disabled={isAnonymous}
         />
@@ -156,13 +153,14 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ tourId, onReviewSubmitted }) =>
           className="input-field" 
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
       </div>
       
       <div className="input-section">
         <label>
           <input type="checkbox" checked={isAnonymous} onChange={toggleAnonymous} />
-          Submit as Anonymous
+          Submit as Anonymous (name only)
         </label>
       </div>
       

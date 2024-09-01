@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import './Booking.css';
 
-const Booking: React.FC = () => {
+interface BookingProps {
+  price: number;
+}
+
+const Booking: React.FC<BookingProps> = ({ price }) => {
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [adults, setAdults] = useState(0);
@@ -24,11 +28,11 @@ const Booking: React.FC = () => {
     setChildren(0);
   };
 
-  const totalPrice = 104 * (adults + kids + children);
+  const totalPrice = price * (adults + kids + children);
 
   return (
     <div className="booking-card">
-      <h3 className="price">$104 <span>/ per person</span></h3>
+      <h3 className="price">${price} <span>/ per person</span></h3>
       <div className="divider"></div>
       
       <div className="booking-section">

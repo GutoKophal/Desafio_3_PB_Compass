@@ -7,7 +7,7 @@ import TopBar from '../components/topBar/TopBar';
 import Card from '../components/mostPopularCard/Card';
 import Pagination from '../components/pagination/Pagination';
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom'; // Import to access query parameters
+import { useLocation } from 'react-router-dom';
 import { getTours } from '../services/api';
 
 interface Tour {
@@ -91,7 +91,7 @@ const Tours: React.FC = () => {
       }
 
       setFilteredTours(tours);
-      setCurrentPage(1); // Reset to first page on filter change
+      setCurrentPage(1);
     };
 
     applyFilters();
@@ -122,7 +122,7 @@ const Tours: React.FC = () => {
         title="Tour Package"
         description="Home / Tour Package"
         backgroundImageUrl="https://firebasestorage.googleapis.com/v0/b/trisog-e765d.appspot.com/o/images%2Fcamp.jpg?alt=media&token=1279c603-93ae-41b7-bfae-0c2efbd2e58a"
-        onSearch={handleSearch} // Pass the handleSearch function to the Search component
+        onSearch={handleSearch}
       />
       <Container className="tours-container">
         <Row>
@@ -134,7 +134,7 @@ const Tours: React.FC = () => {
               {currentTours.map((tour) => (
                 <Col key={tour.id} md={4}>
                   <Card 
-                    id={tour.id} // Pass the id here
+                    id={tour.id}
                     image_url={tour.image_url}
                     city={tour.city}
                     country={tour.country}

@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './reviewCard.css';
-import { getCountReviewsByTourId } from '../../services/api';
 
 interface ReviewCardProps {
   user_name: string;
@@ -11,25 +10,22 @@ interface ReviewCardProps {
   price_review: number;
   comfort: number;
   comment: string;
-  idTour: number;
+  totalReviews: number;
 }
 
-const ReviewCard: React.FC<ReviewCardProps> = ({ user_name, date, services, locations, amenities, price_review, comfort, comment, idTour }) => {
+const ReviewCard: React.FC<ReviewCardProps> = ({
+  user_name,
+  date,
+  services,
+  locations,
+  amenities,
+  price_review,
+  comfort,
+  comment,
+  totalReviews,
+}) => {
   const averageRating = ((services + locations + amenities + price_review + comfort) / 5).toFixed(1);
-  const [reviewCount, setReviewCount] = useState<number>(0);
-
-  useEffect(() => {
-    const fetchReviewCount = async () => {
-      try {
-        const count = await getCountReviewsByTourId(idTour);
-        setReviewCount(count);
-      } catch (error) {
-        console.error('Error fetching review count:', error);
-      }
-    };
-
-    fetchReviewCount();
-  }, [idTour]);
+  const formattedDate = new Date(date).toLocaleDateString();
 
   return (
     <div className="review-card">
@@ -41,14 +37,14 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ user_name, date, services, loca
       <div className="review-content-wrapper">
         <div className="review-header">
           <div className="review-user-info">
-            <span className="review-date">{new Date(date).toLocaleDateString()}</span>
+            <span className="review-date">{formattedDate}</span>
             <span className="review-user-name">{user_name}</span>
           </div>
-        </div>
-        <div className="review-rating">
-          <span className="rating-star">★</span>
-          <span className="rating-value">{averageRating}</span>
-          <span className="rating-count">{reviewCount} reviews</span>
+          <div className="review-rating">
+            <span className="rating-star">★</span>
+            <span className="rating-value">{averageRating}</span>
+            <span className="rating-count">({totalReviews} {totalReviews === 1 ? 'review' : 'reviews'})</span>
+          </div>
         </div>
         <p className="review-content">{comment}</p>
       </div>

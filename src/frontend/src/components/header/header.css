@@ -1,27 +1,56 @@
 .header-navbar {
     padding: 10px 20px;
 }
-  
+
+.logo {
+    width: 100px;
+    height: auto;
+    display: block;
+}
+
 .header-navbar .navbar-brand {
+    padding: 0;
+    margin: 0;
     display: flex;
     align-items: center;
+    height: auto;
 }
-  
+
 .header-navbar .nav-link {
     font-size: 16px;
     font-weight: 500;
+    color: #898E9F;
+    transition: color 0.3s;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.header-navbar .nav-link:hover {
+    color: #FD6468;
+    text-decoration: none !important;
+}
+
+.header-navbar .active-link {
+    color: #FD6468;
+    text-decoration: none !important;
 }
 
 .search-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    height: 38px;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    height: 38px !important;
+    margin: 0 !important;
+    vertical-align: middle !important;
 }
 
 .search-button-color {
-    color: black;
+    color: #898E9F !important;
+    font-size: 16px !important;
+    line-height: 1 !important;
+    vertical-align: middle !important;
+    margin-right: 10px;
 }
 
 .form-control {
@@ -29,7 +58,7 @@
 }
 
 .me-2 {
-    margin-right: 8px; 
+    margin-right: 8px;
 }
 
 .user-email {
@@ -45,6 +74,7 @@
     color: #FD6468 !important;
     border-radius: 5px !important;
     transition: background-color 0.3s, color 0.3s !important;
+    text-decoration: none !important;
 }
 
 .logout-button:hover,
@@ -53,5 +83,26 @@
     color: white !important;
     outline: none !important;
     box-shadow: none !important;
+    text-decoration: none !important;
 }
 
+.user-email {
+    margin-right: 10px;
+    font-weight: 500;
+    color: #898E9F;
+    transition: color 0.3s;
+}
+
+.user-email:hover {
+    color: #FD6468;
+}
+
+.login-signup-link {
+    font-weight: 500;
+    color: #898E9F;
+    transition: color 0.3s;
+}
+
+.login-signup-link:hover {
+    color: #FD6468;
+}

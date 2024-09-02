@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Navbar, Nav, Form, Button, Container } from 'react-bootstrap'
-import { FaPlane, FaSearch } from 'react-icons/fa'
+import { FaSearch } from 'react-icons/fa'
 import { CiUser } from 'react-icons/ci'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../contexts/authContext'
@@ -25,10 +25,14 @@ const Header: React.FC = () => {
   };
 
   return (
-    <Navbar expand="lg" className="bg-white">
+    <Navbar expand="lg" className="bg-white header-navbar">
       <Container fluid>
         <Navbar.Brand href="/home">
-          <FaPlane size={24} className="mr-2" />
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/trisog-e765d.appspot.com/o/icons%2FLogo.png?alt=media&token=ac0fad67-96a6-4bcc-a46d-b9a1bce4cb73"
+            alt="Logo icon"
+            className="logo"
+          />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -39,17 +43,42 @@ const Header: React.FC = () => {
             >
               Home
             </Nav.Link>
-            <Nav.Link href="#">About</Nav.Link>
+            <Nav.Link
+              href="#"
+              className={location.pathname === "#" ? "active-link" : ""}
+            >
+              About
+            </Nav.Link>
             <Nav.Link
               href="/tours"
               className={location.pathname === "/tours" ? "active-link" : ""}
             >
               Tours
             </Nav.Link>
-            <Nav.Link href="#">Destination</Nav.Link>
-            <Nav.Link href="#">Blog</Nav.Link>
-            <Nav.Link href="#">Pages</Nav.Link>
-            <Nav.Link href="#">Contact</Nav.Link>
+            <Nav.Link
+              href="#"
+              className={location.pathname === "#" ? "active-link" : ""}
+            >
+              Destination
+            </Nav.Link>
+            <Nav.Link
+              href="#"
+              className={location.pathname === "#" ? "active-link" : ""}
+            >
+              Blog
+            </Nav.Link>
+            <Nav.Link
+              href="#"
+              className={location.pathname === "#" ? "active-link" : ""}
+            >
+              Pages
+            </Nav.Link>
+            <Nav.Link
+              href="#"
+              className={location.pathname === "#" ? "active-link" : ""}
+            >
+              Contact
+            </Nav.Link>
           </Nav>
           <Form className="d-flex align-items-center">
             {searchVisible && (
@@ -80,7 +109,10 @@ const Header: React.FC = () => {
               </Button>
             </div>
           ) : (
-            <Nav.Link href="/" className="d-flex align-items-center">
+            <Nav.Link
+              href="/"
+              className="d-flex align-items-center login-signup-link"
+            >
               <CiUser size={20} className="mr-1" /> Login / Signup
             </Nav.Link>
           )}

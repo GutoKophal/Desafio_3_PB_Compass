@@ -7,7 +7,7 @@ import TopBar from '../components/topBar/TopBar';
 import Card from '../components/mostPopularCard/Card';
 import Pagination from '../components/pagination/Pagination';
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { getTours } from '../services/api';
 
 interface Tour {
@@ -28,7 +28,9 @@ const useQuery = () => {
 
 const Tours: React.FC = () => {
   const query = useQuery();
-  
+  const navigate = useNavigate();
+  const searchTermFromQuery = query.get('destination') || '';
+
   const [filters, setFilters] = useState<{ 
     searchTerm: string;
     categories: string[], 
@@ -36,8 +38,8 @@ const Tours: React.FC = () => {
     priceRange: [number, number], 
     reviews: number[] 
   }>({
-    searchTerm: query.get("destination") || "",
-    categories: query.get("type") ? [query.get("type")!] : [],
+    searchTerm: searchTermFromQuery,
+    categories: [],
     countries: {
       Africa: [],
       Americas: [],
@@ -103,6 +105,9 @@ const Tours: React.FC = () => {
       searchTerm: searchParams.destination,
       categories: searchParams.type ? [searchParams.type] : filters.categories,
     });
+
+    // Limpa os campos e navega para a página de resultados
+    navigate(`/tours?destination=${searchParams.destination}`);
   };
 
   const indexOfLastItem = currentPage * itemsPerPage;

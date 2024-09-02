@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { FaStar, FaClock } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
-import './card.css';
-import { getReviewsByTourId } from '../../services/api';
+import React, { useEffect, useState } from "react";
+import { FaStar, FaClock } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import "./card.css";
+import { getReviewsByTourId } from "../../services/api";
 
 interface CardProps {
   id: number;
@@ -15,7 +15,15 @@ interface CardProps {
   price: number;
 }
 
-const Card: React.FC<CardProps> = ({ id, image_url, city, country, title, duration, price }) => {
+const Card: React.FC<CardProps> = ({
+  id,
+  image_url,
+  city,
+  country,
+  title,
+  duration,
+  price,
+}) => {
   const navigate = useNavigate();
   const [averageRating, setAverageRating] = useState<number | null>(null);
   const [reviewCount, setReviewCount] = useState<number>(0);
@@ -24,15 +32,24 @@ const Card: React.FC<CardProps> = ({ id, image_url, city, country, title, durati
     const fetchReviews = async () => {
       try {
         const reviews = await getReviewsByTourId(id);
-        const reviewRatings = reviews.map((review: any) => 
-          (review.services + review.locations + review.amenities + review.price_review + review.comfort) / 5
+        const reviewRatings = reviews.map(
+          (review: any) =>
+            (review.services +
+              review.locations +
+              review.amenities +
+              review.price_review +
+              review.comfort) /
+            5
         );
         const totalReviews = reviewRatings.length;
-        const sumRatings = reviewRatings.reduce((acc: number, rating: number) => acc + rating, 0);
+        const sumRatings = reviewRatings.reduce(
+          (acc: number, rating: number) => acc + rating,
+          0
+        );
         setAverageRating(totalReviews > 0 ? sumRatings / totalReviews : null);
         setReviewCount(totalReviews);
       } catch (error) {
-        console.error('Failed to fetch reviews:', error);
+        console.error("Failed to fetch reviews:", error);
       }
     };
 
@@ -43,30 +60,45 @@ const Card: React.FC<CardProps> = ({ id, image_url, city, country, title, durati
     navigate(`/tourDetails/${id}`);
   };
 
+  const truncateText = (text: string, maxLength: number) => {
+    if (text.length > maxLength) {
+      return text.substring(0, maxLength) + "...";
+    }
+    return text;
+  };
+
   return (
-    <div className="card h-100" onClick={handleClick} style={{ cursor: 'pointer' }}>
-      <img 
-        src={image_url} 
-        className="card-img-top" 
-        alt={title} 
-      />
+    <div
+      className="card h-100"
+      onClick={handleClick}
+      style={{ cursor: "pointer" }}
+    >
+      <img src={image_url} className="card-img-top" alt={title} />
       <div className="card-body">
-        <p className="text-muted mb-2">{city}, {country}</p>
-        <h5 className="card-title">{title}</h5>
+        <p className="text-muted mb-2">
+          {city}, {country}
+        </p>
+        <h5 className="card-title">{truncateText(title, 22)}</h5>
         <div className="d-flex align-items-center mb-2">
           <span className="text-danger me-2">
-            <FaStar /> 
-            {averageRating !== null ? averageRating.toFixed(1) : 'No reviews yet'}
+            <FaStar />
+            {averageRating !== null
+              ? averageRating.toFixed(1)
+              : "No reviews yet"}
           </span>
           <span className="text-muted me-3">
-            {reviewCount > 0 ? `${reviewCount} ${reviewCount === 1 ? 'review' : 'reviews'}` : ''}
+            {reviewCount > 0
+              ? `${reviewCount} ${reviewCount === 1 ? "review" : "reviews"}`
+              : ""}
           </span>
           <span className="text-muted">
             <FaClock /> {duration} days
           </span>
         </div>
-        <p className="text-muted">Starting From</p>
-        <h5 className="text-dark fw-bold">${price}</h5>
+        <div className="d-flex align-items-center justify-content-between">
+          <p className="text-muted mb-0">Starting From</p>
+          <h5 className="text-dark fw-bold mb-0">${price}</h5>
+        </div>
       </div>
     </div>
   );

@@ -3,20 +3,53 @@
 }
 
 .custom-carousel .carousel-indicators li {
-  background-color: #D3D3D3;
+  background-color: #D3D3D3 !important;
   width: 12px;
   height: 12px;
   border-radius: 50%; 
   margin: 0 5px;
+  opacity: 0.7;
+}
+
+.custom-carousel .carousel-indicators li:hover {
+  background-color: #B0B0B0 !important;
 }
 
 .custom-carousel .carousel-indicators .active {
-  background-color: #FD5056; 
+  background-color: #FD5056 !important;
   width: 12px;
   height: 12px;
   border-radius: 50%;
+  opacity: 1;
 }
 
 .carousel-container {
   margin-bottom: 10%;
 }
+
+.custom-carousel .carousel-control-prev,
+.custom-carousel .carousel-control-next {
+  opacity: 0;
+  width: 15%;
+  height: 100%;
+  z-index: 1;
+}
+
+.custom-carousel .carousel-control-prev {
+  left: 0;
+}
+
+.custom-carousel .carousel-control-next {
+  right: 0;
+}
+
+.custom-carousel .carousel-control-prev:hover,
+.custom-carousel .carousel-control-next:hover {
+  opacity: 0;
+}
+
+.custom-carousel .carousel-control-prev-icon,
+.custom-carousel .carousel-control-next-icon {
+  display: none;
+}
+

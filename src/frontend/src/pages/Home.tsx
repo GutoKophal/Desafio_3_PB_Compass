@@ -1,5 +1,5 @@
-import Footer from '../components/footer/Footer';
-import Header from '../components/header/Header';
+import Footer from '../components/footer/footer';
+import Header from '../components/header/header';
 import NumberInfo from '../components/stats/Stats';
 import Search from '../components/search/Search';
 import TopBar from '../components/topBar/TopBar';

@@ -1,5 +1,6 @@
 .tour-type-carousel .carousel-indicators {
   bottom: -50px; 
+  margin-bottom: 10px;
 }
 
 .tour-type-carousel .carousel-indicators li {

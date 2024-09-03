@@ -30,16 +30,18 @@
 
 .tours-count {
   font-size: 0.9rem;
-  color: #030F35;
+  color: #9CA1AE;
   margin-bottom: 10px;
 }
 
 .price {
-  font-size: 1rem;
-  color: #030F35;
+  font-size: 1.2rem !important;
+  color: #9CA1AE !important;
 }
 
 .price span {
-  color: #FD5056;
+  color: #FD5056 !important;
   font-weight: bold;
+  font-family: 'Kaushan Script', cursive;
+  font-size: 1.5rem !important;
 }

@@ -1,21 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import TourDetailsComponent from '../components/tourDetailsComponent/TourDetailsComponent';
-import Booking from '../components/booking/Booking';
-import Footer from '../components/footer/Footer';
-import Header from '../components/header/Header';
-import TopBar from '../components/topBar/TopBar';
-import AverageReviewsComponent from '../components/avaregeReviewsComponent/AvaregeReviewsComponent';
-import ReviewCard from '../components/reviewCard/ReviewCard';
-import ReviewForm from '../components/reviewForm/ReviewForm';
-import PopularTours from '../components/mostPopularCarousel/PopularTours';
-import { getTours, getTypes, getReviewsByTourId } from '../services/api';
-import CarouselTitle from '../components/mostPopularTitle/CarouselTitle';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import TourDetailsComponent from "../components/tourDetailsComponent/TourDetailsComponent";
+import Booking from "../components/booking/Booking";
+import Footer from "../components/footer/Footer";
+import Header from "../components/header/Header";
+import TopBar from "../components/topBar/TopBar";
+import AverageReviewsComponent from "../components/avaregeReviewsComponent/AvaregeReviewsComponent";
+import ReviewCard from "../components/reviewCard/ReviewCard";
+import ReviewForm from "../components/reviewForm/ReviewForm";
+import PopularTours from "../components/mostPopularCarousel/PopularTours";
+import { getTours, getTypes, getReviewsByTourId } from "../services/api";
+import CarouselTitle from "../components/mostPopularTitle/CarouselTitle";
+import "../styles/TourDetails.css"
 
 const TourDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [tour, setTour] = useState<any>(null);
-  const [tourTypes, setTourTypes] = useState<{ id: number; name: string }[]>([]);
+  const [tourTypes, setTourTypes] = useState<{ id: number; name: string }[]>(
+    []
+  );
   const [reviews, setReviews] = useState<any[]>([]);
   const [overallRating, setOverallRating] = useState<number | null>(null);
 
@@ -34,7 +37,7 @@ const TourDetails: React.FC = () => {
         setReviews(fetchedReviews);
         calculateOverallRating(fetchedReviews);
       } catch (error) {
-        console.error('Failed to fetch tour details:', error);
+        console.error("Failed to fetch tour details:", error);
       }
     };
 
@@ -70,20 +73,14 @@ const TourDetails: React.FC = () => {
   }
 
   const tourType =
-    tourTypes.find((type) => type.id === tour.type_id)?.name || 'Unknown Type';
+    tourTypes.find((type) => type.id === tour.type_id)?.name || "Unknown Type";
 
   return (
     <div>
       <TopBar />
       <Header />
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          padding: '20px',
-        }}
-      >
-        <div style={{ flex: 1, marginRight: '20px' }}>
+      <div className="tour-details-container">
+        <div className="tour-details">
           <TourDetailsComponent
             image={tour.image_url}
             location={`${tour.city}, ${tour.country}`}
@@ -114,7 +111,7 @@ const TourDetails: React.FC = () => {
           )}
           <ReviewForm tourId={tour.id} onReviewSubmitted={handleNewReview} />
         </div>
-        <div style={{ width: '450px' }}>
+        <div className="booking-container">
           <Booking price={tour.price} />
         </div>
       </div>

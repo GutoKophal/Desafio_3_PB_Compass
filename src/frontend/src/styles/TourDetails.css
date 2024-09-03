@@ -1,0 +1,15 @@
+.tour-details-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.tour-details {
+  flex: 2;
+  margin-right: 20px;
+}
+
+.booking-container {
+  flex: 1;
+}

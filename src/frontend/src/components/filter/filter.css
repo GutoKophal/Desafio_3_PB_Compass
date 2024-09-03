@@ -3,7 +3,8 @@
   background-color: #F7F8FA;
   padding: 20px;
   margin-right: 0;
-  margin-left: 9%; 
+  margin-left: 9%;
+  margin-bottom: 10%;
 }
 
 .filter-section {
@@ -49,11 +50,12 @@
   appearance: none;
   width: 100%;
   height: 8px;
-  background: linear-gradient(to right, #FD5056 0%, #FD5056 var(--range-progress), #ccc var(--range-progress), #ccc 100%);
   outline: none;
   border-radius: 5px;
   opacity: 0.9;
   transition: opacity 0.2s;
+  --range-progress: 100%;
+  background: linear-gradient(to right, #FD5056 0%, #FD5056 var(--range-progress), #ccc var(--range-progress), #ccc 100%);
 }
 
 .price-range input[type="range"]::-webkit-slider-runnable-track {
@@ -102,7 +104,8 @@
   margin-top: 5px;
 }
 
-.price-range-values .min-price, .price-range-values .max-price {
+.price-range-values .min-price,
+.price-range-values .max-price {
   font-size: 1rem;
   color: #0C1446;
   font-weight: bold;
@@ -139,4 +142,33 @@
 
 .filter-section ul li input[type="checkbox"] {
   margin-right: 10px;
+}
+
+.filter-section ul li input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 2px solid #ccc;
+  border-radius: 20%;
+  cursor: pointer;
+  position: relative;
+}
+
+.filter-section ul li input[type="checkbox"]:checked {
+  background-color: #FD5056;
+  border-color: #FD5056;
+}
+
+.filter-section ul li input[type="checkbox"]:checked::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
 }

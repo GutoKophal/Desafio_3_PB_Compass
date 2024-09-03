@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './filter.css';
 
 interface FilterProps {
@@ -96,6 +96,18 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
     });
   };
 
+  useEffect(() => {
+    const rangeInput = document.querySelector('.price-range input[type="range"]') as HTMLInputElement;
+
+    if (rangeInput) {
+      rangeInput.addEventListener('input', (e: Event) => {
+        const target = e.currentTarget as HTMLInputElement;
+        const value = ((parseFloat(target.value) - parseFloat(target.min)) / (parseFloat(target.max) - parseFloat(target.min))) * 100;
+        target.style.setProperty('--range-progress', `${value}%`);
+      });
+    }
+  }, []);
+
   return (
     <div className="filter-card">
       <div className="filter-section">
@@ -149,7 +161,6 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
         <h5>Africa</h5>
         <ul>
           <li><input type="checkbox" onChange={() => handleCountryChange('Africa', 'Morocco')} /> Morocco</li>
-          <li><input type="checkbox" onChange={() => handleCountryChange('Africa', 'Tanzania')} /> Tanzania</li>
           <li><input type="checkbox" onChange={() => handleCountryChange('Africa', 'Kenya')} /> Kenya</li>
           <li><input type="checkbox" onChange={() => handleCountryChange('Africa', 'South Africa')} /> South Africa</li>
           <li><input type="checkbox" onChange={() => handleCountryChange('Africa', 'Egypt')} /> Egypt</li>
@@ -158,10 +169,8 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
         <ul>
           <li><input type="checkbox" onChange={() => handleCountryChange('Americas', 'Brazil')} /> Brazil</li>
           <li><input type="checkbox" onChange={() => handleCountryChange('Americas', 'USA')} /> USA</li>
-          <li><input type="checkbox" onChange={() => handleCountryChange('Americas', 'Argentina')} /> Argentina</li>
           <li><input type="checkbox" onChange={() => handleCountryChange('Americas', 'Canada')} /> Canada</li>
           <li><input type="checkbox" onChange={() => handleCountryChange('Americas', 'Peru')} /> Peru</li>
-          <li><input type="checkbox" onChange={() => handleCountryChange('Americas', 'Mexico')} /> Mexico</li>
         </ul>
         <h5>Asia</h5>
         <ul>
@@ -170,7 +179,6 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
           <li><input type="checkbox" onChange={() => handleCountryChange('Asia', 'China')} /> China</li>
           <li><input type="checkbox" onChange={() => handleCountryChange('Asia', 'India')} /> India</li>
           <li><input type="checkbox" onChange={() => handleCountryChange('Asia', 'Nepal')} /> Nepal</li>
-          <li><input type="checkbox" onChange={() => handleCountryChange('Asia', 'Vietnam')} /> Vietnam</li>
         </ul>
         <h5>Europe</h5>
         <ul>
@@ -184,7 +192,6 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
         <h5>Oceania</h5>
         <ul>
           <li><input type="checkbox" onChange={() => handleCountryChange('Oceania', 'Australia')} /> Australia</li>
-          <li><input type="checkbox" onChange={() => handleCountryChange('Oceania', 'New Zealand')} /> New Zealand</li>
         </ul>
       </div>
       <div className="filter-section">

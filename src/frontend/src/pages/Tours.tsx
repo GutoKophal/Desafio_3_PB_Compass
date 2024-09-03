@@ -9,6 +9,7 @@ import Pagination from '../components/pagination/Pagination';
 import { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { getTours } from '../services/api';
+import "../styles/tour.css"
 
 interface Tour {
   id: number;
@@ -106,7 +107,6 @@ const Tours: React.FC = () => {
       categories: searchParams.type ? [searchParams.type] : filters.categories,
     });
 
-    // Limpa os campos e navega para a página de resultados
     navigate(`/tours?destination=${searchParams.destination}`);
   };
 
@@ -125,7 +125,11 @@ const Tours: React.FC = () => {
       <Search 
         titleAbove=""
         title="Tour Package"
-        description="Home / Tour Package"
+        description={
+          <>
+            Home / <span className="highlighted-text">Tour Package</span>
+          </>
+        }
         backgroundImageUrl="https://firebasestorage.googleapis.com/v0/b/trisog-e765d.appspot.com/o/images%2Fcamp.jpg?alt=media&token=1279c603-93ae-41b7-bfae-0c2efbd2e58a"
         onSearch={handleSearch}
       />
@@ -137,7 +141,7 @@ const Tours: React.FC = () => {
           <Col md={9}>
             <Row>
               {currentTours.map((tour) => (
-                <Col key={tour.id} md={4}>
+                <Col key={tour.id} md={4} className="card-container">
                   <Card 
                     id={tour.id}
                     image_url={tour.image_url}

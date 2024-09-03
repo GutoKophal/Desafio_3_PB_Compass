@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, ReactNode } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./search.css";
 
@@ -6,7 +6,7 @@ interface SearchProps {
   onSearch?: (searchParams: { destination: string; type: string; when: string; guests: string }) => void;
   titleAbove?: string;
   title?: string;
-  description?: string;
+  description?: string | ReactNode;
   backgroundImageUrl?: string;
 }
 

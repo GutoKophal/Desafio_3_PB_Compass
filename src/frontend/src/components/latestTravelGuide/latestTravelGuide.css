@@ -1,6 +1,7 @@
 .latest-travel-guide {
   padding: 50px;
-  background-color: #ffffff; /* Fundo branco para a seção inteira */
+  background-color: #ffffff;
+  margin-right: 10px;
 }
 
 .section-header {
@@ -9,27 +10,11 @@
 }
 
 .section-subtitle {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #FD6468;
   font-style: italic;
   position: relative;
-}
-
-.section-subtitle::before, .section-subtitle::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  width: 40px;
-  height: 1px;
-  background-color: #ccc;
-}
-
-.section-subtitle::before {
-  left: -50px;
-}
-
-.section-subtitle::after {
-  right: -50px;
+  font-family: 'Kaushan Script', cursive;
 }
 
 .section-title {
@@ -37,21 +22,30 @@
   font-weight: bold;
   color: #0C1446;
   margin-top: 10px;
+  font-family: 'Work Sans', sans-serif;
 }
 
 .guide-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;
-  background-color: #ffffff; /* Fundo branco para a lista também */
+  background-color: #ffffff;
   margin-left: 10%;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.guide-date {
+  font-size: 1rem;
+  font-family: 'Work Sans', sans-serif;
 }
 
 .guide-item {
   display: flex;
   align-items: center;
   padding: 15px;
-  background-color: #ffffff; /* Fundo branco para cada item */
+  background-color: #ffffff;
+  width: 100%;
+  font-family: 'Work Sans', sans-serif;
 }
 
 .guide-image {
@@ -62,22 +56,16 @@
 }
 
 .guide-info {
-  max-width: 35%; /* Reservando espaço para a imagem */
-}
-
-.guide-date {
-  font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 5px;
+  max-width: 60%;
+  font-family: 'Work Sans', sans-serif;
 }
 
 .guide-title {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: bold;
   color: #0C1446;
   margin: 0;
-  white-space: normal; /* Permite a quebra de linha normal */
-  word-wrap: break-word; /* Quebra palavras longas se necessário */
-  line-height: 1.4; /* Ajusta o espaçamento entre as linhas para melhor legibilidade */
+  white-space: normal;
+  word-wrap: break-word;
+  line-height: 1.4;
 }
-

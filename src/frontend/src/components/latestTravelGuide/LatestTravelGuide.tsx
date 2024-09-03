@@ -1,31 +1,35 @@
-import React from 'react';
-import './latestTravelGuide.css';
+import React from "react";
+import "./latestTravelGuide.css";
 
 const LatestTravelGuide: React.FC = () => {
   const guides = [
     {
-      date: 'July 13, 2023',
-      author: 'Admin',
-      title: 'The Impact of Covid-19 on travel & tourism industry',
-      image: 'https://firebasestorage.googleapis.com/v0/b/trisog-e765d.appspot.com/o/images%2Ftraveler.jpg?alt=media&token=3abf73f6-e376-4e5d-9392-8813a23fe298',
+      date: "July 13, 2023",
+      author: "Admin",
+      title: "The Impact of Covid-19 on travel & tourism industry",
+      image:
+        "https://firebasestorage.googleapis.com/v0/b/trisog-e765d.appspot.com/o/images%2Ftraveler.jpg?alt=media&token=3abf73f6-e376-4e5d-9392-8813a23fe298",
     },
     {
-      date: 'July 13, 2023',
-      author: 'Admin',
-      title: 'The Impact of Covid-19 on travel & tourism industry',
-      image: 'https://firebasestorage.googleapis.com/v0/b/trisog-e765d.appspot.com/o/images%2Ftraveler.jpg?alt=media&token=3abf73f6-e376-4e5d-9392-8813a23fe298',
+      date: "July 13, 2023",
+      author: "Admin",
+      title: "The Impact of Covid-19 on travel & tourism industry",
+      image:
+        "https://firebasestorage.googleapis.com/v0/b/trisog-e765d.appspot.com/o/images%2Ftraveler-2.jpg?alt=media&token=2dba7844-68ec-4157-82a3-b7214bf0035d",
     },
     {
-      date: 'July 13, 2023',
-      author: 'Admin',
-      title: 'The Impact of Covid-19 on travel & tourism industry',
-      image: 'https://firebasestorage.googleapis.com/v0/b/trisog-e765d.appspot.com/o/images%2Ftraveler.jpg?alt=media&token=3abf73f6-e376-4e5d-9392-8813a23fe298',
+      date: "July 13, 2023",
+      author: "Admin",
+      title: "The Impact of Covid-19 on travel & tourism industry",
+      image:
+        "https://firebasestorage.googleapis.com/v0/b/trisog-e765d.appspot.com/o/images%2Ftraveler-3.jpg?alt=media&token=2934daf8-2fe9-484d-ab90-76f25499c8cb",
     },
     {
-      date: 'July 13, 2023',
-      author: 'Admin',
-      title: 'The Impact of Covid-19 on travel & tourism industry',
-      image: 'https://firebasestorage.googleapis.com/v0/b/trisog-e765d.appspot.com/o/images%2Ftraveler.jpg?alt=media&token=3abf73f6-e376-4e5d-9392-8813a23fe298',
+      date: "July 13, 2023",
+      author: "Admin",
+      title: "The Impact of Covid-19 on travel & tourism industry",
+      image:
+        "https://firebasestorage.googleapis.com/v0/b/trisog-e765d.appspot.com/o/images%2Ftraveler-4.jpg?alt=media&token=a7905054-69af-425c-9af0-e09c0a594656",
     },
   ];
 

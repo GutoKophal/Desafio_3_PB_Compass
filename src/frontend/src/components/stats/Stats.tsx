@@ -1,26 +1,33 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './stats.css';
 
-const Stats: React.FC = () => {
+const Stats = () => {
   return (
-    <div className="d-flex justify-content-around text-center mt-4">
-      <div className="text-center" style={{ display: 'inline-block' }}>
-        <span className="h3" style={{ marginRight: '5px' }}>120+</span>
-        <p style={{ display: 'inline', marginBottom: '0' }}>Total Destinations</p>
-      </div>
-      <div className="text-center" style={{ display: 'inline-block' }}>
-        <span className="h3" style={{ marginRight: '5px' }}>500+</span>
-        <p style={{ display: 'inline', marginBottom: '0' }}>Travel Packages</p>
-      </div>
-      <div className="text-center" style={{ display: 'inline-block' }}>
-        <span className="h3" style={{ marginRight: '5px' }}>12k+</span>
-        <p style={{ display: 'inline', marginBottom: '0' }}>Total Travelers</p>
-      </div>
-      <div className="text-center" style={{ display: 'inline-block' }}>
-        <span className="h3" style={{ marginRight: '5px' }}>7k+</span>
-        <p style={{ display: 'inline', marginBottom: '0' }}>Positive Reviews</p>
-      </div>
+    <div className="stats-container">
+  <div className="stat-item">
+    <div className="stat-line">
+      <div className="stat-value">120+</div>
+      <div className="stat-label">Total Destinations</div>
     </div>
+  </div>
+  <div className="stat-item">
+    <div className="stat-line">
+      <div className="stat-value">500+</div>
+      <div className="stat-label">Travel Packages</div>
+    </div>
+  </div>
+  <div className="stat-item">
+    <div className="stat-line">
+      <div className="stat-value">12k+</div>
+      <div className="stat-label">Total Travelers</div>
+    </div>
+  </div>
+  <div className="stat-item">
+    <div className="stat-line">
+      <div className="stat-value">7k+</div>
+      <div className="stat-label">Positive Reviews</div>
+    </div>
+  </div>
+</div>
   );
 };
 

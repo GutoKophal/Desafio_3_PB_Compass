@@ -1,0 +1,49 @@
+.stats-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  margin-left: 6%;
+  margin-bottom: 5%;
+}
+
+.stat-item {
+  flex: 1;
+  min-width: 150px;
+}
+
+.stat-line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #0C1446;
+  font-family: 'Kaushan Script', cursive;
+}
+
+.stat-label {
+  font-size: 1.2rem;
+  color: #7A7A7A;
+  margin-top: 5px;
+  font-family: 'Work Sans', sans-serif;
+}
+
+@media (min-width: 768px) {
+  .stat-line {
+    flex-direction: row;
+  }
+
+  .stat-value {
+    margin-right: 10px;
+  }
+
+  .stat-label {
+    margin-top: 0;
+  }
+}

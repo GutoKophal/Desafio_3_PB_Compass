@@ -35,7 +35,8 @@ const TopAttractions = () => {
   ];
 
   return (
-    <div className="top-attractions-container">
+    <div className="top-attractions-wrapper">
+      <div className="top-attractions-container">
       <div className="title-section">
         <p className="subtitle">Destination</p>
         <h2 className="main-title">Top Attractions Destinations</h2>
@@ -52,6 +53,8 @@ const TopAttractions = () => {
         ))}
       </div>
     </div>
+    </div>
+    
   );
 };
 

@@ -1,7 +1,12 @@
+.top-attractions-wrapper {
+  background-color: #F7F8FA;
+  width: 100%;
+}
+
 .top-attractions-container {
   padding: 40px;
   text-align: center;
-  margin-left: 50px; /* Ajuste o valor conforme necessário */
+  margin-left: 50px;
   margin-right: 50px;
 }
 
@@ -24,12 +29,12 @@
 
 .attractions-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 colunas */
-  grid-template-rows: 200px 200px; /* 2 linhas */
-  gap: 20px; /* Espaçamento entre os itens */
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 200px 200px;
+  gap: 20px;
   grid-template-areas: 
     "img1 img2 img3 img6"
-    "img4 img5 img5 img6"; /* Define as áreas do grid */
+    "img4 img5 img5 img6";
 }
 
 .destination-card {
@@ -40,7 +45,7 @@
 .destination-card img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Garante que a imagem se ajuste ao container */
+  object-fit: cover;
 }
 
 .destination-card::before {
@@ -49,32 +54,32 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 50%; /* Altura do gradiente escurecido */
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)); /* Gradiente que escurece a parte inferior */
+  height: 50%;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
 }
 
 .destination-card:nth-child(1) {
-  grid-area: img1; /* Primeira imagem */
+  grid-area: img1;
 }
 
 .destination-card:nth-child(2) {
-  grid-area: img2; /* Segunda imagem */
+  grid-area: img2;
 }
 
 .destination-card:nth-child(3) {
-  grid-area: img3; /* Terceira imagem que ocupa duas colunas */
+  grid-area: img3;
 }
 
 .destination-card:nth-child(4) {
-  grid-area: img4; /* Quarta imagem */
+  grid-area: img4;
 }
 
 .destination-card:nth-child(5) {
-  grid-area: img5; /* Quinta imagem */
+  grid-area: img5;
 }
 
 .destination-card:nth-child(6) {
-  grid-area: img6; /* Sexta imagem que ocupa duas colunas */
+  grid-area: img6;
 }
 
 .destination-info {
@@ -82,7 +87,7 @@
   bottom: 10px;
   left: 10px;
   color: white !important;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); /* Adiciona sombra ao texto para melhor visibilidade */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
 }
 
 .travelers {

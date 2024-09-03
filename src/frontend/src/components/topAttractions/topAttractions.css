@@ -1,44 +1,100 @@
 .top-attractions-container {
-  width: 100%;
-  padding: 20px;
-  background-color: #f5f5f5;
+  padding: 40px;
   text-align: center;
+  margin-left: 50px; /* Ajuste o valor conforme necessário */
+  margin-right: 50px;
 }
 
-.top-attractions-title {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 10px;
+.title-section {
+  margin-bottom: 20px;
+  font-family: 'Work Sans', sans-serif;
 }
 
-.top-attractions-subtitle {
+.subtitle {
   font-size: 1.5rem;
-  color: #f25c8a;
-  margin-bottom: 30px;
+  color: #FD5056;
+  font-family: 'Kaushan Script', cursive;
 }
 
-.images-container {
+.main-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #0C1446;
+}
+
+.attractions-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
-  justify-content: center;
+  grid-template-columns: repeat(4, 1fr); /* 4 colunas */
+  grid-template-rows: 200px 200px; /* 2 linhas */
+  gap: 20px; /* Espaçamento entre os itens */
+  grid-template-areas: 
+    "img1 img2 img3 img6"
+    "img4 img5 img5 img6"; /* Define as áreas do grid */
 }
 
-.image-item {
-  background-size: cover;
-  background-position: center;
-  border-radius: 10px;
-  overflow: hidden;
+.destination-card {
   position: relative;
-  height: 200px;
-  width: 300px;
+  overflow: hidden;
 }
 
-.image-text {
+.destination-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Garante que a imagem se ajuste ao container */
+}
+
+.destination-card::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%; /* Altura do gradiente escurecido */
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)); /* Gradiente que escurece a parte inferior */
+}
+
+.destination-card:nth-child(1) {
+  grid-area: img1; /* Primeira imagem */
+}
+
+.destination-card:nth-child(2) {
+  grid-area: img2; /* Segunda imagem */
+}
+
+.destination-card:nth-child(3) {
+  grid-area: img3; /* Terceira imagem que ocupa duas colunas */
+}
+
+.destination-card:nth-child(4) {
+  grid-area: img4; /* Quarta imagem */
+}
+
+.destination-card:nth-child(5) {
+  grid-area: img5; /* Quinta imagem */
+}
+
+.destination-card:nth-child(6) {
+  grid-area: img6; /* Sexta imagem que ocupa duas colunas */
+}
+
+.destination-info {
   position: absolute;
   bottom: 10px;
   left: 10px;
+  color: white !important;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); /* Adiciona sombra ao texto para melhor visibilidade */
+}
+
+.travelers {
+  font-size: 1rem;
+  margin-bottom: 5px;
   color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  font-size: 1.25rem;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.destination-name {
+  font-size: 1.7em;
+  font-weight: bold;
+  color: white;
+  font-family: 'Kaushan Script', cursive;
 }

@@ -11,6 +11,7 @@ import TestimonialSection from '../components/testimonial/TestimonialSection';
 import LatestTravelGuide from '../components/latestTravelGuide/LatestTravelGuide';
 import IconSection from '../components/iconSection/IconSection';
 import QualityStandards from '../components/qualityStandarts/QualityStandards';
+import TopAttractions from '../components/topAttractions/TopAttractions';
 
 const Home = () => {
     return (
@@ -26,6 +27,7 @@ const Home = () => {
             <CarouselTitle subtitle="Tours" mainTitle="Most Popular Tours" />
             <PopularTours />
             <NumberInfo />
+            <TopAttractions />
             <QualityStandards />
             <TourTypeTitle />
             <TourTypeCarousel />

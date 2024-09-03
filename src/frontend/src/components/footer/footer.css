@@ -1,0 +1,160 @@
+.kaushan-font {
+    font-family: 'Kaushan Script', cursive;
+}
+
+.footer {
+    background-color: black;
+    color: white;
+    padding: 40px 0;
+    border-bottom: solid #FD5056 5px;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 150px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-section:nth-child(2) {
+    margin-left: 40px;
+}
+
+.need {
+    font-family: 'Kaushan Script', cursive !important;
+}
+
+.company-logo {
+    width: 100px;
+    margin-bottom: 15px;
+}
+
+.company-info p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #cfcfcf;
+}
+
+.company-info p span,
+.company-info p strong {
+    font-size: 1.2rem;
+}
+
+.company-info p strong {
+    font-weight: bold;
+}
+
+.company-info span {
+    color: #FD5056;
+}
+
+.footer-section p {
+    color: #cfcfcf !important;
+    margin: 5px 0 !important;
+    font-size: 1rem;
+}
+
+
+.footer h5 {
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links li a {
+    color: #cfcfcf;
+    text-decoration: none;
+}
+
+.footer-links li a:hover {
+    color: #FD5056;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    color: #cfcfcf;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.social-icons a:hover {
+    color: #FD5056;
+}
+
+.newsletter {
+    max-width: 300px;
+}
+
+.newsletter form {
+    display: flex;
+    flex-direction: column;
+}
+
+.email-input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.email-input.error {
+    border: 2px solid #FD5056;
+    visibility: visible;
+    display: block;
+}
+
+.submit-button {
+    background-color: #FD5056;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    border-radius: 5px;
+    min-width: 150px;
+    min-height: 50px;
+}
+
+.submit-button:hover {
+    background-color: #e05558;
+}
+
+.error-message {
+    color: #FD5056;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.copyright {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #cfcfcf;
+    text-align: center;
+}

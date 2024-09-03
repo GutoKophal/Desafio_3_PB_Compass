@@ -1,0 +1,23 @@
+.title-container {
+  text-align: center;
+  margin-bottom: 3%;
+  font-family: "Work Sans", sans-serif;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: #FD5056;
+  font-style: italic;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 10px;
+  padding: 0 20px;
+  font-family: "Work Sans", sans-serif;
+}
+
+.main-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #0C1446;
+  margin-top: 10px;
+}

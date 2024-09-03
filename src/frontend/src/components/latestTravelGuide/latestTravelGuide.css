@@ -1,0 +1,71 @@
+.latest-travel-guide {
+  padding: 50px;
+  background-color: #ffffff;
+  margin-right: 10px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: #FD6468;
+  font-style: italic;
+  position: relative;
+  font-family: 'Kaushan Script', cursive;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #0C1446;
+  margin-top: 10px;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.guide-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  background-color: #ffffff;
+  margin-left: 10%;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.guide-date {
+  font-size: 1rem;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.guide-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color: #ffffff;
+  width: 100%;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.guide-image {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.guide-info {
+  max-width: 60%;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.guide-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #0C1446;
+  margin: 0;
+  white-space: normal;
+  word-wrap: break-word;
+  line-height: 1.4;
+}

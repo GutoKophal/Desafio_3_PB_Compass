@@ -1,0 +1,158 @@
+#login-section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #F5F5F5 ;
+  height: 100vh;
+  width: 100%;
+}
+
+.signInContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 20px;
+  width: 30em;
+  padding: 1.5rem;
+}
+
+.login-header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.signInContainer h2{
+  text-align: center;
+  padding-bottom: 0.5rem;
+  font-size: 1.6rem;
+}
+
+.signInContainer p{
+  font-size: 14px;
+  color: #6C6C6C;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+.signInContainer label{
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  padding-bottom: 0.5rem;
+  padding-top: 1rem;
+}
+
+.signInContainer input{
+  width: 100%;
+  height: 3rem;
+  font-size: 1rem;
+  padding-left: 1rem;
+  border: 1px solid #E5E5E5;
+}
+
+.signInContainer input::placeholder{
+  color: #CDCDCD;
+  font-size: 0.8rem;
+}
+
+.error-email,.error-password,.error{
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  display: none;
+  color: #cd4949;
+}
+
+.error{
+  text-align: center;
+}
+
+.signInContainer button{
+  cursor: pointer;
+  border: none;
+  height: 3rem;
+  border-radius: 6px;
+}
+
+.signInButton{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  background-color: #FD5056;
+}
+
+.signInButton:hover{
+  background-color: #e05558;
+}
+
+.switch{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signInContainer a{
+  box-sizing: border-box;
+  text-align: center;
+  color:#FD5056;
+  text-decoration: underline;
+  cursor: pointer;
+  padding-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+a:hover{
+  color: #e05558;
+}
+
+.googleButton{
+  background-color: #4184F3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.googleButton:hover{
+  background-color: #3d78d7;
+}
+
+.googleButton span{
+  padding-left: 1rem;
+}
+
+.google-icon{
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.facebookButton {
+  padding: 10px;
+  margin-top: 10px;
+  width: 100%;
+  background-color: #4267B2;
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.facebookButton:hover,
+.facebookButton:focus {
+  background-color: #365899;
+}
+
+.facebook-icon {
+  margin-right: 10px;
+  font-size: 1.5rem;
+  color: #fff;
+}

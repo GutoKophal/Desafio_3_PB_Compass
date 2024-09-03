@@ -1,8 +1,9 @@
 import sqlite3 from 'sqlite3';
 import { open, Database } from 'sqlite';
 import path from 'path';
-import { createDestinationTable } from './models/destinationModel';
 import { createTourTable } from './models/tourModel';
+import { createReviewTable } from './models/reviewModel';
+import { createTypeTable } from './models/typeModel';
 
 export async function initDB(): Promise<Database> {
     const dbPath = path.resolve(__dirname, '../public/destination.sqlite');
@@ -12,8 +13,9 @@ export async function initDB(): Promise<Database> {
         driver: sqlite3.Database
     });
 
-    await createDestinationTable(db);
+    await createTypeTable(db);
     await createTourTable(db);
+    await createReviewTable(db);
 
     return db;
 }

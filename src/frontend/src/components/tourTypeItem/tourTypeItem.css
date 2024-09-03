@@ -1,0 +1,47 @@
+.tour-type-item {
+  text-align: left;
+  padding: 20px;
+  background-color: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  margin: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.icon-container {
+  background-color: #FD5056;
+  padding: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.icon-container svg {
+  color: #FFFFFF;
+  font-size: 24px;
+}
+
+.tour-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #0C1446;
+  margin-bottom: 5px;
+}
+
+.tours-count {
+  font-size: 0.9rem;
+  color: #9CA1AE;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 1.2rem !important;
+  color: #9CA1AE !important;
+}
+
+.price span {
+  color: #FD5056 !important;
+  font-weight: bold;
+  font-family: 'Kaushan Script', cursive;
+  font-size: 1.5rem !important;
+}

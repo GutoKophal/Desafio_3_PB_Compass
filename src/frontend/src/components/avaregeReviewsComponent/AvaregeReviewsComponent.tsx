@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import './avaregeReviewsComponent.css';
+import React, { useEffect, useState } from "react";
+import "./avaregeReviewsComponent.css";
 
 interface ReviewData {
   services: number;
@@ -13,7 +13,9 @@ interface AverageReviewsComponentProps {
   reviews: ReviewData[];
 }
 
-const AverageReviewsComponent: React.FC<AverageReviewsComponentProps> = ({ reviews }) => {
+const AverageReviewsComponent: React.FC<AverageReviewsComponentProps> = ({
+  reviews,
+}) => {
   const [averageRatings, setAverageRatings] = useState<ReviewData>({
     services: 0,
     locations: 0,
@@ -50,7 +52,11 @@ const AverageReviewsComponent: React.FC<AverageReviewsComponentProps> = ({ revie
   return (
     <div className="average-reviews">
       <div className="average-box">
-        <span className="average-number">{(Object.values(averageRatings).reduce((acc, val) => acc + val, 0) / 5).toFixed(1)}</span>
+        <span className="average-number">
+          {(
+            Object.values(averageRatings).reduce((acc, val) => acc + val, 0) / 5
+          ).toFixed(1)}
+        </span>
         <span className="average-text">Overall Rating</span>
       </div>
       <div className="review-bars">
@@ -58,7 +64,10 @@ const AverageReviewsComponent: React.FC<AverageReviewsComponentProps> = ({ revie
           <span className="label">Services</span>
           <div className="bar-container">
             <div className="bar">
-              <div className="fill" style={{ width: `${(averageRatings.services / 5) * 100}%` }}></div>
+              <div
+                className="fill"
+                style={{ width: `${(averageRatings.services / 5) * 100}%` }}
+              ></div>
             </div>
             <span className="value">{averageRatings.services.toFixed(1)}</span>
           </div>
@@ -67,7 +76,10 @@ const AverageReviewsComponent: React.FC<AverageReviewsComponentProps> = ({ revie
           <span className="label">Locations</span>
           <div className="bar-container">
             <div className="bar">
-              <div className="fill" style={{ width: `${(averageRatings.locations / 5) * 100}%` }}></div>
+              <div
+                className="fill"
+                style={{ width: `${(averageRatings.locations / 5) * 100}%` }}
+              ></div>
             </div>
             <span className="value">{averageRatings.locations.toFixed(1)}</span>
           </div>
@@ -76,7 +88,10 @@ const AverageReviewsComponent: React.FC<AverageReviewsComponentProps> = ({ revie
           <span className="label">Amenities</span>
           <div className="bar-container">
             <div className="bar">
-              <div className="fill" style={{ width: `${(averageRatings.amenities / 5) * 100}%` }}></div>
+              <div
+                className="fill"
+                style={{ width: `${(averageRatings.amenities / 5) * 100}%` }}
+              ></div>
             </div>
             <span className="value">{averageRatings.amenities.toFixed(1)}</span>
           </div>
@@ -85,16 +100,24 @@ const AverageReviewsComponent: React.FC<AverageReviewsComponentProps> = ({ revie
           <span className="label">Prices</span>
           <div className="bar-container">
             <div className="bar">
-              <div className="fill" style={{ width: `${(averageRatings.price_review / 5) * 100}%` }}></div>
+              <div
+                className="fill"
+                style={{ width: `${(averageRatings.price_review / 5) * 100}%` }}
+              ></div>
             </div>
-            <span className="value">{averageRatings.price_review.toFixed(1)}</span> 
+            <span className="value">
+              {averageRatings.price_review.toFixed(1)}
+            </span>
           </div>
         </div>
         <div className="review-bar">
           <span className="label">Comfort</span>
           <div className="bar-container">
             <div className="bar">
-              <div className="fill" style={{ width: `${(averageRatings.comfort / 5) * 100}%` }}></div>
+              <div
+                className="fill"
+                style={{ width: `${(averageRatings.comfort / 5) * 100}%` }}
+              ></div>
             </div>
             <span className="value">{averageRatings.comfort.toFixed(1)}</span>
           </div>

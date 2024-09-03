@@ -89,7 +89,9 @@ const TourDetailsComponent: React.FC<TourDetailsProps> = ({
             loading="lazy"
           />
         </div>
-        <h3>Avarege Reviews</h3>
+        <div className='avarege'>
+          <h3>Avarege Reviews</h3>
+        </div>
       </div>
     </div>
   );

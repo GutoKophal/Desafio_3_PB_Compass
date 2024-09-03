@@ -107,7 +107,7 @@ const TourDetails: React.FC = () => {
               />
             ))
           ) : (
-            <p>No reviews yet. Be the first to review this tour!</p>
+            <p className="reviews-yet">No reviews yet. Be the first to review this tour!</p>
           )}
           <ReviewForm tourId={tour.id} onReviewSubmitted={handleNewReview} />
         </div>

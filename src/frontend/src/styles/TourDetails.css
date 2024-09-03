@@ -13,3 +13,8 @@
 .booking-container {
   flex: 1;
 }
+
+.reviews-yet {
+  margin-top: 50px;
+  margin-left: 50px;
+}

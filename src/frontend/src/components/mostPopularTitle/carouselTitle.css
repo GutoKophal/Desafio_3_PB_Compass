@@ -15,26 +15,6 @@
   font-family: "Work Sans", sans-serif;
 }
 
-.subtitle::before, .subtitle::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  width: 40px;
-  height: 1px;
-  background-color: #ccc;
-  transform: translateY(-50%);
-}
-
-.subtitle::before {
-  left: 0;
-  margin-left: -60px;
-}
-
-.subtitle::after {
-  right: 0;
-  margin-right: -60px;
-}
-
 .main-title {
   font-size: 2rem;
   font-weight: bold;

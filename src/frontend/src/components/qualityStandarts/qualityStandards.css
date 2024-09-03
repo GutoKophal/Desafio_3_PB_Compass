@@ -7,24 +7,32 @@
 }
 
 .quality-standards-image img {
-  width: 350px;
-  height: auto;
+  width: 600px;
+  height: 600px;
   margin-right: 200px;
 }
 
 .quality-standards-content {
   max-width: 350px;
   margin-left: 0;
+  font-family: 'Work Sans', sans-serif;
 }
 
 .section-subtitle {
   font-size: 1.2rem;
   color: #FD5056;
   margin-bottom: 10px;
+  font-family: 'Kaushan Script', cursive;
+}
+
+.section-subtitle::before,
+.section-subtitle::after {
+  content: none;
+  border: none;
 }
 
 .section-title {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: bold;
   color: #0C1446;
   margin-top: 10px;
@@ -67,7 +75,7 @@
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-top: 10%;
+  margin-top: 25%;
 }
 
 .contact-button:hover {

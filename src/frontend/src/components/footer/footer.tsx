@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import { FaFacebook, FaTwitter, FaLinkedin, FaPlane } from "react-icons/fa";
-
+import { FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
 import "./footer.css";
 
 const Footer: React.FC = () => {
@@ -19,6 +17,7 @@ const Footer: React.FC = () => {
       setEmail("");
       setEmailError("");
     } else {
+      setEmail("");
       setEmailError("Please enter a valid email address.");
     }
   };
@@ -29,112 +28,121 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="footer mt-5 py-4">
-      <Container fluid className="footer-conteiner">
-        <Row className="d-flex flex-wrap">
-          <Col md={2} className="footer-section" id="first-section">
-            <div className="company-info">
-              <div className="company-icon d-flex align-items-center">
-                <FaPlane />
-                <p className="ml-2">Trisog</p>
-              </div>
-              <p>Need any help?</p>
-              <p>Call Us: (888)11234 5678</p>
-              <p>Love Street, Muscat, Oman</p>
-              <p>Example@trisog.com</p>
-              <div className="social-icons d-flex">
-                <a
-                  href="https://www.facebook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaFacebook />
-                </a>
-                <a
-                  href="https://www.twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaTwitter />
-                </a>
-                <a
-                  href="https://www.linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaLinkedin />
-                </a>
-              </div>
+    <footer className="footer">
+      <div className="footer-container">
+        <div className="footer-section">
+          <div className="company-info">
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/trisog-e765d.appspot.com/o/icons%2FLogo%20Color%3DWhite.png?alt=media&token=6650cd84-3fb3-438d-b96f-5962aa39b1af"
+              alt="Trisog logo"
+              className="company-logo"
+            />
+            <p className="kaushan-font">Need any help?</p>
+            <p>
+              <strong>Call Us:</strong> <span>(888) 1234 5678</span>
+            </p>
+            <p>Love Street, Muscat, Oman</p>
+            <p>example@trisog.com</p>
+            <div className="social-icons">
+              <a
+                href="https://www.facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaFacebook />
+              </a>
+              <a
+                href="https://www.twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaTwitter />
+              </a>
+              <a
+                href="https://www.linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin />
+              </a>
             </div>
-          </Col>
+          </div>
+        </div>
 
-          <Col md={2} className="footer-section">
-            <h5>Company</h5>
-            <ul className="footer-links">
-              <li>
-                <a href="">About Us</a>
-              </li>
-              <li>
-                <a href="">Services</a>
-              </li>
-              <li>
-                <a href="">Careers</a>
-              </li>
-              <li>
-                <a href="">Contact</a>
-              </li>
-            </ul>
-          </Col>
+        <div className="footer-section">
+          <h5 className="kaushan-font">Company</h5>
+          <ul className="footer-links">
+            <li>
+              <a href="#">About Us</a>
+            </li>
+            <li>
+              <a href="#">Services</a>
+            </li>
+            <li>
+              <a href="#">Careers</a>
+            </li>
+            <li>
+              <a href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
 
-          <Col md={2} className="footer-section">
-            <h5>Top Destinations</h5>
-            <ul className="footer-links">
-              <li>Las Vegas</li>
-              <li>New York City</li>
-              <li>San Francisco</li>
-              <li>Hawaii</li>
-            </ul>
-          </Col>
+        <div className="footer-section">
+          <h5 className="kaushan-font">Top Destinations</h5>
+          <ul className="footer-links">
+            <li>
+              <a href="#">Las Vegas</a>
+            </li>
+            <li>
+              <a href="#">New York City</a>
+            </li>
+            <li>
+              <a href="#">San Francisco</a>
+            </li>
+            <li>
+              <a href="#">Hawaii</a>
+            </li>
+          </ul>
+        </div>
 
-          <Col md={2} className="footer-section">
-            <h5>&nbsp;</h5>
-            <ul className="footer-links">
-              <li>Tokyo</li>
-              <li>Sydney</li>
-              <li>Melbourne</li>
-              <li>Dubai</li>
-            </ul>
-          </Col>
+        <div className="footer-section">
+          <h5>&nbsp;</h5>
+          <ul className="footer-links">
+            <li>
+              <a href="#">Tokyo</a>
+            </li>
+            <li>
+              <a href="#">Sydney</a>
+            </li>
+            <li>
+              <a href="#">Melbourne</a>
+            </li>
+            <li>
+              <a href="#">Dubai</a>
+            </li>
+          </ul>
+        </div>
 
-          <Col
-            md={4}
-            className="footer-section d-flex flex-column align-items-center"
-          >
-            <h5>Sign up Newsletter</h5>
-            <Form
-              onSubmit={handleEmailSubmit}
-              className="d-flex flex-column align-items-center"
-            >
-              <Form.Group controlId="formEmail" className="w-100">
-                <Form.Control
-                  type="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={handleEmailChange}
-                  isInvalid={!!emailError}
-                />
-                <Form.Control.Feedback type="invalid">
-                  {emailError}
-                </Form.Control.Feedback>
-              </Form.Group>
-              <Button type="submit" variant="primary" className="mt-2">
-                Submit
-              </Button>
-              <span className="mt-3">© 2023 Trisog All Rights Reserved</span>
-            </Form>
-          </Col>
-        </Row>
-      </Container>
+        <div className="footer-section newsletter">
+          <h5 className="kaushan-font">Sign up Newsletter</h5>
+          <form onSubmit={handleEmailSubmit}>
+            <input
+              type="text"
+              placeholder="Enter your email"
+              value={email}
+              onChange={handleEmailChange}
+              className={`email-input ${emailError ? "error" : ""}`}
+            />
+            {emailError && <span className="error-message">{emailError}</span>}
+            <button type="submit" className="submit-button">
+              Submit
+            </button>
+          </form>
+          <div className="copyright">
+            &copy; 2023 Trisog All Rights Reserved
+          </div>
+        </div>
+      </div>
     </footer>
   );
 };
